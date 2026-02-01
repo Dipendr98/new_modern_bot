@@ -6,16 +6,17 @@ Set these in your Railway project settings:
 
 ### Database Configuration
 ```bash
-DB_HOST=your-railway-mysql-host
-DB_NAME=babachecker
+DB_HOST=gondola.proxy.rlwy.net
+DB_NAME=railway
 DB_USER=root
-DB_PASS=your-database-password
+DB_PASS=HwrzpjTcHKJSJtBvdfCsxmdWFqGtURHH
+DB_PORT=35602
 ```
 
 ### Telegram Configuration
 ```bash
-TELEGRAM_BOT_TOKEN=your-bot-token
-TELEGRAM_BOT_USERNAME=YourBotUsername
+TELEGRAM_BOT_TOKEN=8446922993:AAHKSq2QSmA8keUcL865Crjx8sFvgFz-FBI
+TELEGRAM_BOT_USERNAME=Checker_deepubot
 TELEGRAM_CHAT_ID=your-chat-id
 TELEGRAM_ANNOUNCE_CHAT_ID=-1002552641928
 TELEGRAM_REQUIRE_ALLOWLIST=false
