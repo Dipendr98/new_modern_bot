@@ -7,8 +7,11 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && docker-php-ext-install pdo_mysql zip
 
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
+# Disable conflicting MPM modules (fix for "More than one MPM loaded" error)
+RUN a2dismod mpm_event mpm_worker
+
+# Enable Apache mod_rewrite and mpm_prefork
+RUN a2enmod rewrite mpm_prefork
 
 # Copy application files
 COPY . /var/www/html/
