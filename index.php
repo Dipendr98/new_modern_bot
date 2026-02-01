@@ -3,7 +3,14 @@ declare(strict_types=1);
 require_once __DIR__ . '/app/Bootstrap.php';
 require_once __DIR__ . '/app/Db.php';
 require_once __DIR__ . '/app/Settings.php';
-App\Settings::load();
+
+// Try to load settings from DB, but don't fail if DB is not configured yet
+try {
+    App\Settings::load();
+} catch (\Throwable $e) {
+    // Database not configured yet - that's OK for initial deployment
+    error_log('Settings load failed (DB not configured?): ' . $e->getMessage());
+}
 
 $botUsername   = $_ENV['TELEGRAM_BOT_USERNAME'] ?? '';
 $requireAllow  = filter_var($_ENV['TELEGRAM_REQUIRE_ALLOWLIST'] ?? 'false', FILTER_VALIDATE_BOOLEAN);

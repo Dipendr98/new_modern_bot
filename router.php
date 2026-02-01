@@ -69,18 +69,34 @@ if ($uri !== '/' && file_exists(__DIR__ . $uri)) {
 // Route everything else to index.php
 routerLog("Routing to index.php");
 
+// Start output buffering to catch any errors
+ob_start();
+
 try {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
     require __DIR__ . '/index.php';
+    
+    // Flush output buffer
+    ob_end_flush();
+    
 } catch (Throwable $e) {
+    // Clear output buffer on error
+    ob_end_clean();
+    
     routerLog("Error: " . $e->getMessage());
+    routerLog("File: " . $e->getFile() . ":" . $e->getLine());
+    
     http_response_code(500);
     echo "<!DOCTYPE html><html><head><title>Error</title></head><body>";
     echo "<h1>Application Error</h1>";
     echo "<p>An error occurred while processing your request.</p>";
-    if (($_ENV['APP_ENV'] ?? '') === 'local') {
-        echo "<pre>" . htmlspecialchars($e->getMessage()) . "</pre>";
-        echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
-    }
+    
+    // Always show errors for debugging Railway deployment
+    echo "<pre style='background:#f5f5f5;padding:20px;border:1px solid #ddd;'>";
+    echo htmlspecialchars($e->getMessage()) . "\n\n";
+    echo "File: " . htmlspecialchars($e->getFile()) . ":" . $e->getLine() . "\n\n";
+    echo htmlspecialchars($e->getTraceAsString());
+    echo "</pre>";
+    
     echo "</body></html>";
 }
