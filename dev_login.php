@@ -5,7 +5,19 @@
 require_once __DIR__ . '/app/Bootstrap.php';
 require_once __DIR__ . '/app/Db.php';
 
-$pdo = \App\Db::pdo();
+// Check if database is available
+try {
+    $pdo = \App\Db::pdo();
+} catch (\Throwable $e) {
+    http_response_code(503);
+    echo "<!DOCTYPE html><html><head><title>Database Required</title></head><body>";
+    echo "<h1>Database Not Configured</h1>";
+    echo "<p>Dev login requires a database connection. Please configure your database first.</p>";
+    echo "<p>Error: " . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<p><a href='/'>← Back to Home</a></p>";
+    echo "</body></html>";
+    exit;
+}
 
 // Find the user (default to admin)
 $username = $_GET['user'] ?? 'admin';
