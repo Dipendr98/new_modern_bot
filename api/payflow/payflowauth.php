@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php'; // Adjusted path
 require_once __DIR__ . '/../../app/Db.php';
@@ -29,7 +29,7 @@ $userStatus = strtoupper($userData['status'] ?? 'FREE');
 $userFullName = trim($userFirstName . ($userLastName ? ' ' . $userLastName : ''));
 $currentCredits = (int)$userData['credits'];
 if ($userStatus === 'BANNED') {
-    echo json_encode(['Response' => 'You are banned from using Cyborx.']);
+    echo json_encode(['Response' => 'You are banned from using babachecker.']);
     exit;
 }
 if ($userStatus === 'FREE') {
@@ -221,7 +221,7 @@ if (stripos($response, 'Payment method successfully added.') !== false) {
         "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -265,7 +265,7 @@ if (stripos($response, 'Payment method successfully added.') !== false) {
         "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }

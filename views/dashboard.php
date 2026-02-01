@@ -338,7 +338,7 @@ declare(strict_types=1);
       const j = await r.json();
       if(!j.ok){
         if (j.error === 'BANNED') {
-          msg.textContent = j.message || "You're banned from CyborX";
+          msg.textContent = j.message || "You're banned from BabaChecker";
         } else if (j.error === 'ALREADY') {
           msg.textContent = 'Already claimed for today.';
         } else {

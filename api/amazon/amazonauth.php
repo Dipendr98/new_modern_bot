@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 error_reporting(0);
 header_remove('X-Powered-By');
 header('Cache-Control: no-cache');
@@ -34,7 +34,7 @@ $userStatus = strtoupper($userData['status'] ?? 'FREE');
 $userFullName = trim($userFirstName . ($userLastName ? ' ' . $userLastName : ''));
 $currentCredits = (int)$userData['credits'];
 if ($userStatus === 'BANNED') {
-    echo json_encode(['Response' => 'You are banned from using Cyborx.']);
+    echo json_encode(['Response' => 'You are banned from using babachecker.']);
     exit;
 }
 if ($currentCredits < 2) { // Adjusted to 2 credits for FastSpring Auth
@@ -1012,7 +1012,7 @@ if(is_numeric($cc) && strlen($cc) == 16 || is_numeric($cc) && strlen($cc) == 15)
             "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
             "━━━━━━━━━━━\n" .
             "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-            "[ㇺ] <b>Dev ➜</b> Cyborx";
+            "[ㇺ] <b>Dev ➜</b> babachecker";
         $publicMessage =
             "<b>Hit Detected ✅</b>\n" .
             "━━━━━━━━\n" .

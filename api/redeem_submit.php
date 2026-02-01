@@ -44,10 +44,10 @@ function utf8_first_char(string $s): string { if (function_exists('mb_substr')) 
 function utf8_upper(string $s): string { if (function_exists('mb_strtoupper')) return mb_strtoupper($s, 'UTF-8'); return strtoupper($s); }
 function mask_public_name(string $who): string { $name = trim(ltrim($who,'@')); if($name==='') return 'U***'; $f = utf8_first_char($name); return utf8_upper($f).'***'; }
 function mask_redeem_code(string $code): string {
-  // keep prefix 'CYBORX-' & suffix '-XXXX', mask middle
+  // keep prefix 'BABACHECKER-' & suffix '-XXXX', mask middle
   $c = trim($code);
-  if ($c==='') return 'C********';
-  if (preg_match('~^(CYBORX-)(.+)(-CREDITS|-FREE|-PREMIUM)$~i', $c, $m)) {
+  if ($c==='') return 'B********';
+  if (preg_match('~^(BABACHECKER-)(.+)(-CREDITS|-FREE|-PREMIUM)$~i', $c, $m)) {
     $body = $m[2];
     $keepL = 4; $keepR = 3;
     $masked = substr($body,0,$keepL) . str_repeat('X', max(0, strlen($body)-$keepL-$keepR)) . substr($body,-$keepR);
@@ -167,7 +167,7 @@ New Status ➜ {$newStatus}
 New Expiry ➜ ".($newExpiry ?: '—')."
 Redeemed At ➜ {$when}
 ━ ━ ━ ━ ━ ━ ━ ━ ━ ━
-Thanks for using CyborX.";
+Thanks for using BabaChecker.";
     tg_send($BOT_TOKEN, $tgId, $dm, 'HTML');
   }
 
