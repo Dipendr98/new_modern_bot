@@ -16,7 +16,7 @@ $BOT_TOKEN     = $_ENV['TELEGRAM_BOT_TOKEN']        ?? '';
 $ANNOUNCE_CHAT = $_ENV['TELEGRAM_ANNOUNCE_CHAT_ID'] ?? '';
 
 /* ---------- tiny log + telegram helpers ---------- */
-$LOG_FILE = '/www/wwwroot/cyborx.net/storage/logs/redeem.log';
+$LOG_FILE = '/www/wwwroot/babachecker.com/storage/logs/redeem.log';
 @is_dir(dirname($LOG_FILE)) || @mkdir(dirname($LOG_FILE), 0775, true);
 function logerr(string $m){ global $LOG_FILE; @file_put_contents($LOG_FILE,'['.date('c')."] $m\n",FILE_APPEND); }
 

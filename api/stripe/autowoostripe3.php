@@ -298,7 +298,7 @@ if ((stripos($response, 'Payment method successfully added.') !== false)) {
         "<b>Response ➜</b> {$err} 🎉\n" .
         "<b>Gateway ➜</b> Auto Stripe Auth V3\n" .
         "━━━━━━━━\n" .
-        "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'approved',

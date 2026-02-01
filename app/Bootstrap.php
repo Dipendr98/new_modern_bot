@@ -33,7 +33,7 @@ if (is_file($envFile)) {
 }
 
 // ---------- derive host / https ----------
-$host = $_SERVER['HTTP_HOST'] ?? ($_ENV['APP_HOST'] ?? 'cyborx.net');
+$host = $_SERVER['HTTP_HOST'] ?? ($_ENV['APP_HOST'] ?? 'babachecker.com');
 $root = preg_replace('/^www\./i', '', $host);
 $isHttps = (
     (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
@@ -42,7 +42,7 @@ $isHttps = (
 );
 
 // ---------- session knobs (env overrides) ----------
-$SESSION_NAME     = $_ENV['SESSION_NAME']            ?? 'CYBORXSESSID';
+$SESSION_NAME     = $_ENV['SESSION_NAME']            ?? 'BABACHECKERSESSID';
 $COOKIE_DOMAIN    = $_ENV['SESSION_COOKIE_DOMAIN']   ?? ('.' . $root);
 $COOKIE_LIFETIME  = (int)($_ENV['SESSION_COOKIE_LIFETIME'] ?? 7200);
 $GC_MAXLIFETIME   = (int)($_ENV['SESSION_GC_MAXLIFETIME']  ?? 7200);
@@ -68,7 +68,7 @@ session_name($SESSION_NAME);
 session_set_cookie_params([
     'lifetime' => $COOKIE_LIFETIME,
     'path'     => '/',
-    'domain'   => $COOKIE_DOMAIN,   // .cyborx.net
+    'domain'   => $COOKIE_DOMAIN,   // .babachecker.com
     'secure'   => $isHttps,
     'httponly' => true,
     'samesite' => $SAMESITE,        // Lax | Strict | None(HTTPS)

