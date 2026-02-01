@@ -40,6 +40,25 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
   body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; }
   .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
   .card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); }
+  
+  /* 3D Logo Effects */
+  .logo-container { perspective: 1000px; display: flex; justify-content: center; margin-bottom: 0.5rem; }
+  .logo-3d {
+    width: 280px; /* Adjust based on preference */
+    height: auto;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+    animation: float 6s ease-in-out infinite;
+  }
+  .logo-3d:hover {
+    transform: rotateY(12deg) rotateX(8deg) scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.5));
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotateY(0deg); }
+    50% { transform: translateY(-6px) rotateY(4deg); }
+  }
 </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
@@ -48,7 +67,9 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
       
       <!-- Brand Header -->
       <div class="text-center space-y-2">
-        <h1 class="text-3xl font-bold tracking-tight text-white mb-1">BabaChecker</h1>
+        <div class="logo-container">
+           <img src="assets/logo_3d.jpg" alt="BabaChecker" class="logo-3d rounded-xl">
+        </div>
         <p class="text-xs text-slate-400 uppercase tracking-widest font-semibold">Secure Sign-in</p>
       </div>
 
