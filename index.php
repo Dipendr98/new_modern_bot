@@ -88,7 +88,11 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
           <div class="flex flex-col items-center gap-4">
             <span class="text-sm text-slate-300">Sign in with Telegram</span>
 
-            <!-- Local Dev Login -->
+            <!-- Admin Login Button (Secured) -->
+            <a href="/dev_login.php?user=admin&key=baba_secret_123" 
+               class="w-full text-center rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 py-2 text-amber-200 text-xs font-semibold transition mb-2">
+               👑 Admin Login
+            </a>
             <?php if (($_ENV['APP_ENV'] ?? '') === 'local'): ?>
               <div class="w-full text-center p-4 rounded-2xl border border-emerald-500/30 bg-emerald-900/10 mb-2">
                 <div class="text-emerald-300 font-semibold mb-2">Local Environment Detected</div>

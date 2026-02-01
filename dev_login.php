@@ -19,6 +19,12 @@ try {
     exit;
 }
 
+// SECURITY: Require a secret key in production
+$secretKey = 'baba_secret_123';
+if (($_GET['key'] ?? '') !== $secretKey) {
+    die("❌ Access Denied. You need the secret key.");
+}
+
 // Find the user (default to admin)
 $username = $_GET['user'] ?? 'admin';
 $stmt = $pdo->prepare("SELECT id, username, status FROM users WHERE username = :u LIMIT 1");
