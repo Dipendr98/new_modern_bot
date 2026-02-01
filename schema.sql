@@ -1,6 +1,9 @@
 -- BabaChecker Database Schema
 -- Run this on Railway MySQL to create all tables
 
+-- Select the database (replace 'railway' with your actual database name)
+USE railway;
+
 -- Create Users Table
 CREATE TABLE IF NOT EXISTS `users` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
