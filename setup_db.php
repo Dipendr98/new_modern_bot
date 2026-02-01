@@ -6,16 +6,19 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/app/Bootstrap.php';
 
-echo "Setting up local database...\n";
+echo "Setting up database...\n";
 
-// Connect to MySQL server (no DB selected yet)
-$host = '127.0.0.1';
-$user = 'root';
-$pass = ''; // Default XAMPP password
-$dbName = 'cyborx';
+// Get database credentials from environment or use local defaults
+$host = $_ENV['DB_HOST'] ?? '127.0.0.1';
+$port = $_ENV['DB_PORT'] ?? '3306';
+$user = $_ENV['DB_USER'] ?? 'root';
+$pass = $_ENV['DB_PASS'] ?? ''; // Default XAMPP password
+$dbName = $_ENV['DB_NAME'] ?? 'babachecker';
+
+echo "Connecting to MySQL at {$host}:{$port}...\n";
 
 try {
-    $pdo = new PDO("mysql:host=$host;charset=utf8mb4", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;port=$port;charset=utf8mb4", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Create Database
