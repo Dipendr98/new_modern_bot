@@ -43,7 +43,20 @@ $isHttps = (
 
 // ---------- session knobs (env overrides) ----------
 $SESSION_NAME     = $_ENV['SESSION_NAME']            ?? 'BABACHECKERSESSID';
-$COOKIE_DOMAIN    = $_ENV['SESSION_COOKIE_DOMAIN']   ?? ('.' . $root);
+
+// For Railway: use empty domain if SESSION_COOKIE_DOMAIN is not set
+// This allows cookies to work on Railway's *.up.railway.app domains
+$COOKIE_DOMAIN    = $_ENV['SESSION_COOKIE_DOMAIN']   ?? '';
+
+// If we have a custom domain (not Railway), use it
+if (empty($COOKIE_DOMAIN) && !empty($_ENV['APP_HOST'])) {
+    $appHost = $_ENV['APP_HOST'];
+    // Only set domain cookie for custom domains, not Railway domains
+    if (!str_contains($appHost, 'railway.app')) {
+        $COOKIE_DOMAIN = '.' . preg_replace('/^www\./i', '', $appHost);
+    }
+}
+
 $COOKIE_LIFETIME  = (int)($_ENV['SESSION_COOKIE_LIFETIME'] ?? 7200);
 $GC_MAXLIFETIME   = (int)($_ENV['SESSION_GC_MAXLIFETIME']  ?? 7200);
 $SAMESITE         = $_ENV['SESSION_SAMESITE']        ?? 'Lax';   // OAuth redirect → Lax OK
