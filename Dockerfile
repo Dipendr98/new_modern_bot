@@ -1,20 +1,23 @@
 FROM php:8.2-apache
 
-# Install dependencies (zip, unzip, git, mysql extensions)
+# Install dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     libzip-dev \
+    libpng-dev \
+    libjpeg-dev \
     zip \
     unzip \
-    && docker-php-ext-install pdo_mysql zip
+    git \
+    && docker-php-ext-configure gd --with-jpeg \
+    && docker-php-ext-install pdo_mysql zip gd \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Disable ALL MPM modules first to prevent conflicts
-RUN a2dismod mpm_event mpm_worker mpm_prefork || true
-
-# Enable ONLY mpm_prefork (required for PHP)
-RUN a2enmod mpm_prefork
-
-# Enable Apache mod_rewrite
+# Enable Apache modules (mod_rewrite for .htaccess)
 RUN a2enmod rewrite
+
+# Enable Apache AllowOverride for .htaccess support
+RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf
 
 # Copy application files
 COPY . /var/www/html/
