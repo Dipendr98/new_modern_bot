@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿<?php
+=======
+<?php
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 /**
  * Bootstrap: env loader (no putenv) + hardened session
  * PHP 8.1+
@@ -33,7 +37,11 @@ if (is_file($envFile)) {
 }
 
 // ---------- derive host / https ----------
+<<<<<<< HEAD
 $host = $_SERVER['HTTP_HOST'] ?? ($_ENV['APP_HOST'] ?? 'ethnix.net');
+=======
+$host = $_SERVER['HTTP_HOST'] ?? ($_ENV['APP_HOST'] ?? 'babachecker.com');
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 $root = preg_replace('/^www\./i', '', $host);
 $isHttps = (
     (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
@@ -59,7 +67,11 @@ if (empty($COOKIE_DOMAIN) && !empty($_ENV['APP_HOST'])) {
 
 $COOKIE_LIFETIME  = (int)($_ENV['SESSION_COOKIE_LIFETIME'] ?? 7200);
 $GC_MAXLIFETIME   = (int)($_ENV['SESSION_GC_MAXLIFETIME']  ?? 7200);
+<<<<<<< HEAD
 $SAMESITE         = $_ENV['SESSION_SAMESITE']        ?? 'Lax';   // OAuth redirect â†’ Lax OK
+=======
+$SAMESITE         = $_ENV['SESSION_SAMESITE']        ?? 'Lax';   // OAuth redirect → Lax OK
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 $IDLE_MAX         = (int)($_ENV['SESSION_IDLE_MAX']  ?? 7200);
 
 // ---------- dedicated session path ----------
@@ -81,7 +93,11 @@ session_name($SESSION_NAME);
 session_set_cookie_params([
     'lifetime' => $COOKIE_LIFETIME,
     'path'     => '/',
+<<<<<<< HEAD
     'domain'   => $COOKIE_DOMAIN,   // .ethnix.net
+=======
+    'domain'   => $COOKIE_DOMAIN,   // .babachecker.com
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     'secure'   => $isHttps,
     'httponly' => true,
     'samesite' => $SAMESITE,        // Lax | Strict | None(HTTPS)
@@ -93,4 +109,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

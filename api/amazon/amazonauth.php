@@ -1021,7 +1021,11 @@ if(is_numeric($cc) && strlen($cc) == 16 || is_numeric($cc) && strlen($cc) == 15)
             "<b>Response ➜</b> {$err} 🎉\n" .
             "<b>Gateway ➜</b> Amazon Auth\n" .
             "━━━━━━━━\n" .
+<<<<<<< HEAD
             "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+            "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
         // Send messages and log results
         if (!empty($telegramId)) {
             $result = sendTelegramMessage($botToken, $telegramId, $fullResult);
@@ -1096,4 +1100,8 @@ if(is_numeric($cc) && strlen($cc) == 16 || is_numeric($cc) && strlen($cc) == 15)
         ]);
     exit();
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

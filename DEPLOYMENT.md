@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 ﻿# ðŸš€ Railway Deployment Guide
+=======
+# 🚀 Railway Deployment Guide
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 
 ## Prerequisites
 - GitHub account with repository: `https://github.com/Dipendr98/new_modern_bot`
 - Railway account (sign up at [railway.app](https://railway.app))
+<<<<<<< HEAD
 - Domain: `ethnix.net`
+=======
+- Domain: `babachecker.com`
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 
 ---
 
@@ -34,7 +42,11 @@ git push -u origin main --force
 ## Step 3: Add MySQL Database
 
 1. In Railway dashboard, click **"+ New"**
+<<<<<<< HEAD
 2. Select **"Database"** â†’ **"Add MySQL"**
+=======
+2. Select **"Database"** → **"Add MySQL"**
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 3. Railway creates managed MySQL instance
 4. Note the connection details for next step
 
@@ -42,7 +54,11 @@ git push -u origin main --force
 
 ## Step 4: Configure Environment Variables
 
+<<<<<<< HEAD
 Go to **App Service** â†’ **Variables**, add:
+=======
+Go to **App Service** → **Variables**, add:
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 
 ```bash
 # Database (Railway MySQL)
@@ -71,7 +87,11 @@ PAYMENT_QR_LINK=https://...
 
 **Critical for profile pictures!**
 
+<<<<<<< HEAD
 1. Go to **App Service** â†’ **Volumes**
+=======
+1. Go to **App Service** → **Volumes**
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 2. Click **"+ New Volume"**
 3. **Mount Path**: `/var/www/html/assets/profiles`
 4. Click **"Add"**
@@ -89,18 +109,30 @@ PAYMENT_QR_LINK=https://...
 
 ## Step 7: Custom Domain Setup
 
+<<<<<<< HEAD
 1. **App Service** â†’ **Settings** â†’ **Domains**
 2. Click **"+ Custom Domain"**
 3. Enter: `ethnix.net`
+=======
+1. **App Service** → **Settings** → **Domains**
+2. Click **"+ Custom Domain"**
+3. Enter: `babachecker.com`
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 4. Railway provides DNS records
 5. Add records to your domain registrar
 6. Wait 5-30 minutes for DNS propagation
 
 ---
 
+<<<<<<< HEAD
 ## ðŸ”’ Post-Deployment Security
 
 - [ ] Change admin password via Admin Panel â†’ System tab
+=======
+## 🔒 Post-Deployment Security
+
+- [ ] Change admin password via Admin Panel → System tab
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 - [ ] Delete `setup_db.php`
 - [ ] Verify `.env` not publicly accessible
 - [ ] Test all payment gateways
@@ -108,15 +140,25 @@ PAYMENT_QR_LINK=https://...
 
 ---
 
+<<<<<<< HEAD
 ## ðŸ“Š Monitoring
 
 - **Logs**: Railway Dashboard â†’ Deployments tab
+=======
+## 📊 Monitoring
+
+- **Logs**: Railway Dashboard → Deployments tab
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 - **Restart**: Click "Restart" button
 - **Database Backup**: Automatic on Railway MySQL
 
 ---
 
+<<<<<<< HEAD
 ## ðŸ’¡ Tips
+=======
+## 💡 Tips
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 
 - **Free Tier**: $5/month credit (good for testing)
 - **Scaling**: Upgrade to Pro for production
@@ -124,7 +166,11 @@ PAYMENT_QR_LINK=https://...
 
 ---
 
+<<<<<<< HEAD
 ## ðŸ› Troubleshooting
+=======
+## 🐛 Troubleshooting
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 
 ### Push Blocked by GitHub
 - Ensure no hardcoded secrets in code
@@ -140,9 +186,16 @@ PAYMENT_QR_LINK=https://...
 
 ---
 
+<<<<<<< HEAD
 ## ðŸ“ž Support
+=======
+## 📞 Support
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 
 Need help? Check:
 - Railway Docs: https://docs.railway.app
 - GitHub Issues: https://github.com/Dipendr98/new_modern_bot/issues
+<<<<<<< HEAD
 
+=======
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

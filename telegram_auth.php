@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿<?php
 declare(strict_types=1);
 // à¦•à§‹à¦¨à§‹ à¦¸à§à¦ªà§‡à¦¸/à¦†à¦‰à¦Ÿà¦ªà§à¦Ÿ à¦¨à§Ÿ
+=======
+<?php
+declare(strict_types=1);
+// কোনো স্পেস/আউটপুট নয়
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 require_once __DIR__ . '/app/Bootstrap.php';
 require_once __DIR__ . '/app/Db.php';
 require_once __DIR__ . '/app/Settings.php';
@@ -60,16 +66,26 @@ if ($announceChat !== '' && !isChatMember($botToken, $announceChat, $tgId)) {
 }
 /* ---------- NEW: Profile completeness check ---------- */
 /*
+<<<<<<< HEAD
  * name: à¦•à¦®à¦ªà¦•à§à¦·à§‡ first_name à¦¥à¦¾à¦•à¦¤à§‡ à¦¹à¦¬à§‡ (last_name optional)
  * username: à¦¬à¦¾à¦§à§à¦¯à¦¤à¦¾à¦®à§‚à¦²à¦•
  * photo: à¦¬à¦¾à¦§à§à¦¯à¦¤à¦¾à¦®à§‚à¦²à¦• (Telegram photo_url)
+=======
+ * name: কমপক্ষে first_name থাকতে হবে (last_name optional)
+ * username: বাধ্যতামূলক
+ * photo: বাধ্যতামূলক (Telegram photo_url)
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
  */
 $missing = [];
 if ($first === '') $missing[] = 'name';
 if ($tUser === '') $missing[] = 'username';
 if ($photo === '') $missing[] = 'photo';
 if ($missing) {
+<<<<<<< HEAD
     // à¦‰à¦¦à¦¾à¦¹à¦°à¦£: /?error=profile_missing&need=name,username,photo
+=======
+    // উদাহরণ: /?error=profile_missing&need=name,username,photo
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     $need = implode(',', $missing);
     tgdbg("profile missing for {$tgId}, need={$need}");
     Security::safeRedirect('/?error=profile_missing&need=' . urlencode($need));
@@ -126,10 +142,17 @@ try {
                 $fname = trim($first.' '.$last);
                 $who = $fname !== '' ? $fname : ($tUser !== '' ? '@'.$tUser : 'friend');
                 $human = $expAt->format('j M Y');
+<<<<<<< HEAD
                 $msg = "â›” <b>Your BabaChecker Premium expired</b>\n".
                          "Hi <b>{$who}</b>, your plan expired on <b>{$human}</b>. ".
                          "Your account is now <code>FREE</code>, credits set to <b>10</b>.\n\n".
                          "âž¡ï¸ You can upgrade anytime from <a href=\"https://ethnix.net/app/buy\">Buy Premium</a>.";
+=======
+                $msg = "⛔ <b>Your BabaChecker Premium expired</b>\n".
+                         "Hi <b>{$who}</b>, your plan expired on <b>{$human}</b>. ".
+                         "Your account is now <code>FREE</code>, credits set to <b>10</b>.\n\n".
+                         "➡️ You can upgrade anytime from <a href=\"https://babachecker.com/app/buy\">Buy Premium</a>.";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
                 App\Telegram::sendMessage($botToken, $tgId, $msg, 'HTML');
             }
         }
@@ -146,12 +169,21 @@ if ($announceChat !== '') {
     $displaySafe = htmlspecialchars($display, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     $roleLabel = Telegram::roleLabel($status);
     if ($created) {
+<<<<<<< HEAD
         $text = "ðŸŽ‰ <b>New member</b>: <b>{$displaySafe}</b> [{$roleLabel}]\n".
                 "Welcome to <b>BabaChecker</b> â€” glad to have you here! ðŸ‘‹\n".
                 "âž¡ï¸ <a href=\"https://ethnix.net/\">Login to BabaChecker</a>";
     } else {
         $text = "ðŸŒŸ <b>{$displaySafe}</b> [{$roleLabel}] just signed in to <b>BabaChecker</b>.\n".
                 "Letâ€™s make some hits today. âž¡ï¸ <a href=\"https://ethnix.net/\">Open Dashboard</a>\n";
+=======
+        $text = "🎉 <b>New member</b>: <b>{$displaySafe}</b> [{$roleLabel}]\n".
+                "Welcome to <b>BabaChecker</b> — glad to have you here! 👋\n".
+                "➡️ <a href=\"https://babachecker.com/\">Login to BabaChecker</a>";
+    } else {
+        $text = "🌟 <b>{$displaySafe}</b> [{$roleLabel}] just signed in to <b>BabaChecker</b>.\n".
+                "Let’s make some hits today. ➡️ <a href=\"https://babachecker.com/\">Open Dashboard</a>\n";
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
     }
     Telegram::sendMessage($botToken, $announceChat, $text, 'HTML'); // ignore errors
 }
@@ -160,4 +192,8 @@ $next = '/app/dashboard';
 if (!empty($_GET['state']) && is_string($_GET['state']) && preg_match('~^/app(?:/[\w\-]+)?$~', $_GET['state'])) {
     $next = $_GET['state'];
 }
+<<<<<<< HEAD
 App\Security::safeRedirect($next, '/app/dashboard');
+=======
+App\Security::safeRedirect($next, '/app/dashboard');
+>>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
