@@ -17,8 +17,11 @@ WORKDIR /app
 # Copy application
 COPY . .
 
+# Ensure entrypoint is executable and has unix line endings
+RUN sed -i 's/\r$//' entrypoint.sh && chmod +x entrypoint.sh
+
 # Expose port
 EXPOSE 8080
 
-# Start server - use shell form for variable expansion
-CMD php -S 0.0.0.0:${PORT:-8080} -t . router.php
+# Start server
+CMD ["./entrypoint.sh"]
