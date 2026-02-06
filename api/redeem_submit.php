@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-﻿<?php
-=======
 <?php
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 declare(strict_types=1);
 require_once __DIR__ . '/../app/Bootstrap.php';
 require_once __DIR__ . '/../app/Db.php';
@@ -14,21 +11,15 @@ $pdo = \App\Db::pdo();
 $uid = (int)$_SESSION['uid'];
 
 /* ---------- Limits & Telegram config ---------- */
-<<<<<<< HEAD
-$DAILY_LIMIT = 1; // âœ… à¦¦à¦¿à¦¨à§‡ à¦¸à¦°à§à¦¬à§‹à¦šà§à¦š à¦•à§Ÿà¦Ÿà¦¾ à¦°à¦¿à¦¡à¦¿à¦® à¦•à¦°à¦¾ à¦¯à¦¾à¦¬à§‡
-=======
 $DAILY_LIMIT = 1; // ✅ দিনে সর্বোচ্চ কয়টা রিডিম করা যাবে
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 $BOT_TOKEN     = $_ENV['TELEGRAM_BOT_TOKEN']        ?? '';
 $ANNOUNCE_CHAT = $_ENV['TELEGRAM_ANNOUNCE_CHAT_ID'] ?? '';
 
 /* ---------- tiny log + telegram helpers ---------- */
-<<<<<<< HEAD
-$LOG_FILE = '/www/wwwroot/ethnix.net/storage/logs/redeem.log';
-=======
 $LOG_FILE = '/www/wwwroot/babachecker.com/storage/logs/redeem.log';
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 @is_dir(dirname($LOG_FILE)) || @mkdir(dirname($LOG_FILE), 0775, true);
 function logerr(string $m){ global $LOG_FILE; @file_put_contents($LOG_FILE,'['.date('c')."] $m\n",FILE_APPEND); }
 
@@ -102,11 +93,8 @@ try {
   $todayCount = (int)$cntQ->fetchColumn();
   if ($todayCount >= $DAILY_LIMIT) {
     $pdo->rollBack();
-<<<<<<< HEAD
-    echo json_encode(['ok'=>false,'error'=>'DAILY_LIMIT','limit'=>$DAILY_LIMIT]); // âŒ à¦†à¦œ limit à¦›à¦¾à¦¡à¦¼à¦¿à§Ÿà§‡à¦›à§‡
-=======
     echo json_encode(['ok'=>false,'error'=>'DAILY_LIMIT','limit'=>$DAILY_LIMIT]); // ❌ আজ limit ছাড়িয়েছে
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
     exit;
   }
 
@@ -168,23 +156,6 @@ try {
   $statusLabel = strtoupper((string)$rc['status'])==='PREMIUM' ? 'PREMIUM' : 'FREE';
   $codeDM = $rc['code'];
   $codePub = mask_redeem_code($rc['code']);
-<<<<<<< HEAD
-  $exp = $rc['expiry_date'] ?: 'â€”';
-
-  // DM to user (if telegram_id exists)
-  if ($BOT_TOKEN !== '' && $tgId !== '') {
-    $dm = "Redeem Successful âœ…
-â” â” â” â” â” â” â” â” â” â”
-User âžœ {$uname}
-Telegram ID âžœ {$tgId}
-Code âžœ {$codeDM}
-Status âžœ {$statusLabel}
-Credits Added âžœ {$addCredits}
-New Status âžœ {$newStatus}
-New Expiry âžœ ".($newExpiry ?: 'â€”')."
-Redeemed At âžœ {$when}
-â” â” â” â” â” â” â” â” â” â”
-=======
   $exp = $rc['expiry_date'] ?: '—';
 
   // DM to user (if telegram_id exists)
@@ -200,7 +171,7 @@ New Status ➜ {$newStatus}
 New Expiry ➜ ".($newExpiry ?: '—')."
 Redeemed At ➜ {$when}
 ━ ━ ━ ━ ━ ━ ━ ━ ━ ━
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 Thanks for using BabaChecker.";
     tg_send($BOT_TOKEN, $tgId, $dm, 'HTML');
   }
@@ -208,19 +179,12 @@ Thanks for using BabaChecker.";
   // Announcement (masked)
   if ($BOT_TOKEN !== '' && $ANNOUNCE_CHAT !== '') {
     $pubUser = mask_public_name($uname);
-<<<<<<< HEAD
-    $ann = "ðŸŽŸï¸ <b>Code Redeemed</b>
-<b>User</b> âžœ {$pubUser}
-<b>Code</b> âžœ <code>{$codePub}</code>
-<b>Status</b> âžœ <b>{$statusLabel}</b>
-<b>+Credits</b> âžœ <b>{$addCredits}</b>";
-=======
     $ann = "🎟️ <b>Code Redeemed</b>
 <b>User</b> ➜ {$pubUser}
 <b>Code</b> ➜ <code>{$codePub}</code>
 <b>Status</b> ➜ <b>{$statusLabel}</b>
 <b>+Credits</b> ➜ <b>{$addCredits}</b>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
     tg_send($BOT_TOKEN, $ANNOUNCE_CHAT, $ann, 'HTML');
   }
 
@@ -236,7 +200,4 @@ Thanks for using BabaChecker.";
   http_response_code(500);
   echo json_encode(['ok'=>false,'error'=>'SERVER']);
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

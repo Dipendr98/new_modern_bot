@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-﻿# Railway Deployment - Quick Start
-
-## âœ… What's Been Fixed
-=======
 # Railway Deployment - Quick Start
 
 ## ✅ What's Been Fixed
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 1. **Removed Docker** - No more Apache MPM errors
 2. **Enhanced Router** - Better error handling and logging
@@ -15,11 +10,8 @@
 
 ---
 
-<<<<<<< HEAD
-## ðŸš€ Deploy to Railway
-=======
 ## 🚀 Deploy to Railway
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ### Step 1: Push Your Code
 ```bash
@@ -37,19 +29,12 @@ git push
 
 ### Step 3: Add MySQL Database
 1. In your Railway project, click **"+ New"**
-<<<<<<< HEAD
-2. Select **"Database"** â†’ **"Add MySQL"**
-3. Railway will create a database and provide connection details
-
-### Step 4: Set Environment Variables
-Click on your service â†’ **"Variables"** â†’ Add these:
-=======
 2. Select **"Database"** → **"Add MySQL"**
 3. Railway will create a database and provide connection details
 
 ### Step 4: Set Environment Variables
 Click on your service → **"Variables"** → Add these:
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ```bash
 # Database (copy from Railway MySQL service)
@@ -72,11 +57,8 @@ SESSION_SAMESITE=Lax
 ```
 
 ### Step 5: Add Volume for Uploads
-<<<<<<< HEAD
-1. In your service, go to **"Settings"** â†’ **"Volumes"**
-=======
 1. In your service, go to **"Settings"** → **"Volumes"**
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 2. Click **"+ New Volume"**
 3. Set **Mount Path**: `/app/uploads`
 4. Click **"Add"**
@@ -89,17 +71,11 @@ SESSION_SAMESITE=Lax
 
 ---
 
-<<<<<<< HEAD
-## ðŸ” Troubleshooting
-
-### Check Logs
-In Railway dashboard â†’ Your service â†’ **"Deployments"** â†’ Click latest deployment â†’ **"View Logs"**
-=======
 ## 🔍 Troubleshooting
 
 ### Check Logs
 In Railway dashboard → Your service → **"Deployments"** → Click latest deployment → **"View Logs"**
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 Look for:
 - `[ROUTER]` logs showing requests
@@ -128,11 +104,8 @@ Look for:
 
 ---
 
-<<<<<<< HEAD
-## ðŸ“Š Monitoring
-=======
 ## 📊 Monitoring
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ### Health Check
 ```bash
@@ -157,21 +130,6 @@ Railway provides real-time logs. Look for:
 
 ---
 
-<<<<<<< HEAD
-## ðŸŒ Custom Domain
-
-Once deployed and working:
-
-1. Go to your service â†’ **"Settings"** â†’ **"Domains"**
-2. Click **"+ Custom Domain"**
-3. Enter `ethnix.net`
-4. Add the DNS records shown by Railway
-5. Update environment variable: `APP_HOST=ethnix.net`
-
----
-
-## âœ¨ Next Steps
-=======
 ## 🌐 Custom Domain
 
 Once deployed and working:
@@ -185,7 +143,7 @@ Once deployed and working:
 ---
 
 ## ✨ Next Steps
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 After successful deployment:
 1. Import your database schema
@@ -197,7 +155,4 @@ After successful deployment:
 ---
 
 **The connection closing issue should now be resolved!** The enhanced router will log all requests and errors, making debugging much easier.
-<<<<<<< HEAD
 
-=======
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

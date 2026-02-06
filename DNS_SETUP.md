@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-﻿# DNS Setup Guide for ethnix.net â†’ Railway
-=======
 # DNS Setup Guide for babachecker.com → Railway
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ## Step 1: Deploy to Railway First
 
@@ -21,15 +18,10 @@ Before configuring DNS, you MUST deploy your app to Railway:
 ## Step 2: Add Custom Domain in Railway
 
 1. In Railway, go to your **App Service**
-<<<<<<< HEAD
-2. Click **Settings** â†’ **Domains**
-3. Click **"+ Custom Domain"**
-4. Enter: `ethnix.net`
-=======
 2. Click **Settings** → **Domains**
 3. Click **"+ Custom Domain"**
 4. Enter: `babachecker.com`
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 5. Railway will show you the **CNAME target** (something like: `your-app.up.railway.app`)
 
 **Copy this CNAME value** - you'll need it for the next step!
@@ -40,19 +32,12 @@ Before configuring DNS, you MUST deploy your app to Railway:
 
 Based on your screenshot, here's what to do:
 
-<<<<<<< HEAD
-### For Root Domain (ethnix.net):
-
-**Current A Record:**
-- Type: `A`
-- Name: `ethnix.net`
-=======
 ### For Root Domain (babachecker.com):
 
 **Current A Record:**
 - Type: `A`
 - Name: `babachecker.com`
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 - Value: `76.76.21.21`
 - **Action**: Click **"Remove"** (delete this record)
 
@@ -91,11 +76,8 @@ After saving DNS records:
 
 1. Wait **5-30 minutes** for DNS propagation
 2. Check status: https://dnschecker.org
-<<<<<<< HEAD
-3. Enter: `ethnix.net`
-=======
 3. Enter: `babachecker.com`
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 4. Should show Railway's IP/CNAME globally
 
 ---
@@ -103,23 +85,16 @@ After saving DNS records:
 ## Step 5: Test Your Site
 
 Visit:
-<<<<<<< HEAD
-- `https://ethnix.net`
-- `https://www.ethnix.net`
-=======
 - `https://babachecker.com`
 - `https://www.babachecker.com`
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 Both should load your Railway app!
 
 ---
 
-<<<<<<< HEAD
-## ðŸ”§ Troubleshooting
-=======
 ## 🔧 Troubleshooting
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ### "DNS not resolving"
 - Wait longer (can take up to 48 hours, usually 5-30 mins)
@@ -137,11 +112,8 @@ Both should load your Railway app!
 
 ---
 
-<<<<<<< HEAD
-## ðŸ“‹ Quick Checklist
-=======
 ## 📋 Quick Checklist
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 - [ ] Deploy app to Railway
 - [ ] Get Railway's CNAME/IP from domain settings
@@ -150,15 +122,6 @@ Both should load your Railway app!
 - [ ] Update www CNAME to Railway
 - [ ] Save DNS changes
 - [ ] Wait for propagation
-<<<<<<< HEAD
-- [ ] Test both ethnix.net and www.ethnix.net
-
----
-
-## ðŸŽ¯ What Railway Will Give You
-
-When you add `ethnix.net` in Railway, you'll see:
-=======
 - [ ] Test both babachecker.com and www.babachecker.com
 
 ---
@@ -166,7 +129,7 @@ When you add `ethnix.net` in Railway, you'll see:
 ## 🎯 What Railway Will Give You
 
 When you add `babachecker.com` in Railway, you'll see:
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 **Option 1: CNAME Record**
 ```
@@ -179,7 +142,4 @@ A: 123.456.789.012
 ```
 
 Use whichever Railway provides!
-<<<<<<< HEAD
 
-=======
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

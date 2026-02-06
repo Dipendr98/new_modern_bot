@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-﻿# Telegram Login Setup Guide
-=======
 # Telegram Login Setup Guide
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ## Problem: "Username invalid" Error
 
@@ -25,11 +22,8 @@ This happens when Telegram OAuth is not properly configured. Here's how to fix i
 
 1. Still in BotFather, send: `/setdomain`
 2. Select your bot
-<<<<<<< HEAD
-3. Enter your domain: `ethnix.net`
-=======
 3. Enter your domain: `babachecker.com`
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 4. BotFather will confirm the domain is set
 
 ---
@@ -48,11 +42,8 @@ TELEGRAM_ALLOWED_IDS=123456789,987654321
 
 ### For Railway Deployment:
 
-<<<<<<< HEAD
-Go to Railway â†’ Your App â†’ **Variables** tab, add:
-=======
 Go to Railway → Your App → **Variables** tab, add:
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ```
 TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz
@@ -115,11 +106,8 @@ After deployment:
 
 ---
 
-<<<<<<< HEAD
-## ðŸ› Troubleshooting
-=======
 ## 🐛 Troubleshooting
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 ### "Username invalid" Error
 - **Cause**: Bot token or domain not configured
@@ -143,11 +131,8 @@ After deployment:
 
 ---
 
-<<<<<<< HEAD
-## ðŸ“‹ Quick Checklist
-=======
 ## 📋 Quick Checklist
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 - [ ] Created bot with @BotFather
 - [ ] Got bot token
@@ -160,11 +145,8 @@ After deployment:
 
 ---
 
-<<<<<<< HEAD
-## ðŸ” Security Notes
-=======
 ## 🔐 Security Notes
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
 
 - **Never share your bot token** publicly
 - **Store it only in environment variables**
@@ -183,7 +165,4 @@ TELEGRAM_ADMIN_USERNAME=dipendr98
 TELEGRAM_ANNOUNCE_CHAT_ID=-1002890276135
 TELEGRAM_ALLOWED_IDS=123456789
 ```
-<<<<<<< HEAD
 
-=======
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

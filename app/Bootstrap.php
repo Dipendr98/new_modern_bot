@@ -1,13 +1,10 @@
-<<<<<<< HEAD
-﻿<?php
-=======
 <?php
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 /**
  * Bootstrap: env loader (no putenv) + hardened session
  * PHP 8.1+
  */
-declare(strict_types=1);
+declare(strict_types = 1)
+;
 
 // ---------- timezone ----------
 @date_default_timezone_set('UTC');
@@ -18,8 +15,10 @@ if (is_file($envFile)) {
     $lines = @file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
     foreach ($lines as $raw) {
         $t = trim($raw);
-        if ($t === '' || $t[0] === '#') continue;
-        if (!str_contains($t, '=')) continue;
+        if ($t === '' || $t[0] === '#')
+            continue;
+        if (!str_contains($t, '='))
+            continue;
 
         [$k, $v] = explode('=', $t, 2);
         $k = trim($k);
@@ -27,34 +26,30 @@ if (is_file($envFile)) {
         $v = trim($v);
         if ($v !== '' && ($v[0] === '"' || $v[0] === "'")) {
             $q = $v[0];
-            if (str_ends_with($v, $q)) $v = substr($v, 1, -1);
+            if (str_ends_with($v, $q))
+                $v = substr($v, 1, -1);
         }
         // Prefer $_ENV/$_SERVER to share within app without OS env
-        $_ENV[$k]    = $v;
+        $_ENV[$k] = $v;
         $_SERVER[$k] = $v;
-        // DO NOT call putenv(): it may be disabled on this host
+    // DO NOT call putenv(): it may be disabled on this host
     }
 }
 
 // ---------- derive host / https ----------
-<<<<<<< HEAD
-$host = $_SERVER['HTTP_HOST'] ?? ($_ENV['APP_HOST'] ?? 'ethnix.net');
-=======
 $host = $_SERVER['HTTP_HOST'] ?? ($_ENV['APP_HOST'] ?? 'babachecker.com');
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
 $root = preg_replace('/^www\./i', '', $host);
 $isHttps = (
     (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
     || (($_SERVER['SERVER_PORT'] ?? '') === '443')
-    || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https')
-);
+    || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https')    );
 
 // ---------- session knobs (env overrides) ----------
-$SESSION_NAME     = $_ENV['SESSION_NAME']            ?? 'BABACHECKERSESSID';
+$SESSION_NAME = $_ENV['SESSION_NAME'] ?? 'BABACHECKERSESSID';
 
 // For Railway: use empty domain if SESSION_COOKIE_DOMAIN is not set
 // This allows cookies to work on Railway's *.up.railway.app domains
-$COOKIE_DOMAIN    = $_ENV['SESSION_COOKIE_DOMAIN']   ?? '';
+$COOKIE_DOMAIN = $_ENV['SESSION_COOKIE_DOMAIN'] ?? '';
 
 // If we have a custom domain (not Railway), use it
 if (empty($COOKIE_DOMAIN) && !empty($_ENV['APP_HOST'])) {
@@ -65,14 +60,10 @@ if (empty($COOKIE_DOMAIN) && !empty($_ENV['APP_HOST'])) {
     }
 }
 
-$COOKIE_LIFETIME  = (int)($_ENV['SESSION_COOKIE_LIFETIME'] ?? 7200);
-$GC_MAXLIFETIME   = (int)($_ENV['SESSION_GC_MAXLIFETIME']  ?? 7200);
-<<<<<<< HEAD
-$SAMESITE         = $_ENV['SESSION_SAMESITE']        ?? 'Lax';   // OAuth redirect â†’ Lax OK
-=======
-$SAMESITE         = $_ENV['SESSION_SAMESITE']        ?? 'Lax';   // OAuth redirect → Lax OK
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
-$IDLE_MAX         = (int)($_ENV['SESSION_IDLE_MAX']  ?? 7200);
+$COOKIE_LIFETIME = (int)($_ENV['SESSION_COOKIE_LIFETIME'] ?? 7200);
+$GC_MAXLIFETIME = (int)($_ENV['SESSION_GC_MAXLIFETIME'] ?? 7200);
+$SAMESITE = $_ENV['SESSION_SAMESITE'] ?? 'Lax'; // OAuth redirect → Lax OK
+$IDLE_MAX = (int)($_ENV['SESSION_IDLE_MAX'] ?? 7200);
 
 // ---------- dedicated session path ----------
 $customSessPath = __DIR__ . '/../_sessions';
@@ -92,24 +83,14 @@ ini_set('session.sid_bits_per_character', '6');
 session_name($SESSION_NAME);
 session_set_cookie_params([
     'lifetime' => $COOKIE_LIFETIME,
-    'path'     => '/',
-<<<<<<< HEAD
-    'domain'   => $COOKIE_DOMAIN,   // .ethnix.net
-=======
-    'domain'   => $COOKIE_DOMAIN,   // .babachecker.com
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
-    'secure'   => $isHttps,
+    'path' => '/',
+    'domain' => $COOKIE_DOMAIN, // .babachecker.com
+    'secure' => $isHttps,
     'httponly' => true,
-    'samesite' => $SAMESITE,        // Lax | Strict | None(HTTPS)
+    'samesite' => $SAMESITE, // Lax | Strict | None(HTTPS)
 ]);
 
 // ---------- start session ----------
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b

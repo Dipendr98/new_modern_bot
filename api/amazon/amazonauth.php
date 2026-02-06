@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 error_reporting(0);
 header_remove('X-Powered-By');
 header('Cache-Control: no-cache');
@@ -375,11 +375,11 @@ if(substr($cc,0,1) == '5'){
   $tipo = 'amex';
   $tipocard = 'Amex';
 }
-// Versões do Chrome
+// Vers�es do Chrome
 $chromeVersions = ['116.0.0.0', '115.0.0.0', '114.0.0.0'];
-// Versões do Edge
+// Vers�es do Edge
 $edgeVersions = ['116.0.1938.69', '115.0.1916.77', '114.0.1803.45'];
-// Escolhendo versões aleatórias
+// Escolhendo vers�es aleat�rias
 $randomChromeVersion = $chromeVersions[array_rand($chromeVersions)];
 $randomEdgeVersion = $edgeVersions[array_rand($edgeVersions)];
 // Montando o User-Agent
@@ -996,36 +996,33 @@ if(is_numeric($cc) && strlen($cc) == 16 || is_numeric($cc) && strlen($cc) == 15)
     // Process Prime signup and response
     $mesgirespfim = prime_teste($cookiesa, $last, $datajson);
     deletecard($datajson); // Clean up card
-    if (strpos($mesgirespfim, 'BILLING_ADDRESS_RESTRICTED') !== false || strpos($mesgirespfim, 'Non è stato possibile completare la tua iscrizione a Prime. Ti consigliamo di riprovare durante il proceso di checkout.') !== false) {
+    if (strpos($mesgirespfim, 'BILLING_ADDRESS_RESTRICTED') !== false || strpos($mesgirespfim, 'Non � stato possibile completare la tua iscrizione a Prime. Ti consigliamo di riprovare durante il proceso di checkout.') !== false) {
         $err = 'Authorised (00)';
         $new_credits = updateCredits($pdo, $uid, 3, false, true);
         $fullResult =
             "<b>#AmazonAuth</b>\n" .
-            "━━━━━━━━━━━\n" .
-            "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-            "[ﾒ] <b>Status ➜</b> Approved ✅\n" .
-            "[ﾒ] <b>Response ➜</b> {$err} 🎉\n" .
-            "[ﾒ] <b>Gateway ➜</b> Amazon Auth\n" .
-            "━━━━━━━━━━━\n" .
-            "[ﾒ] <b>Info ➜</b> {$brand} - {$card_type} - {$level}\n" .
-            "[ﾒ] <b>Bank ➜</b> {$issuer}\n" .
-            "[ﾒ] <b>Country ➜</b> {$country_info}\n" .
-            "━━━━━━━━━━━\n" .
-            "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-            "[ㇺ] <b>Dev ➜</b> babachecker";
+            "???????????\n" .
+            "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+            "[?] <b>Status ?</b> Approved ?\n" .
+            "[?] <b>Response ?</b> {$err} ??\n" .
+            "[?] <b>Gateway ?</b> Amazon Auth\n" .
+            "???????????\n" .
+            "[?] <b>Info ?</b> {$brand} - {$card_type} - {$level}\n" .
+            "[?] <b>Bank ?</b> {$issuer}\n" .
+            "[?] <b>Country ?</b> {$country_info}\n" .
+            "???????????\n" .
+            "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+            "[?] <b>Dev ?</b> babachecker";
         $publicMessage =
-            "<b>Hit Detected ✅</b>\n" .
-            "━━━━━━━━\n" .
-            "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-            "<b>Status ➜</b> <b>Approved ✅</b>\n" .
-            "<b>Response ➜</b> {$err} 🎉\n" .
-            "<b>Gateway ➜</b> Amazon Auth\n" .
-            "━━━━━━━━\n" .
-<<<<<<< HEAD
-            "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-            "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+            "<b>Hit Detected ?</b>\n" .
+            "????????\n" .
+            "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+            "<b>Status ?</b> <b>Approved ?</b>\n" .
+            "<b>Response ?</b> {$err} ??\n" .
+            "<b>Gateway ?</b> Amazon Auth\n" .
+            "????????\n" .
+            "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
         // Send messages and log results
         if (!empty($telegramId)) {
             $result = sendTelegramMessage($botToken, $telegramId, $fullResult);
@@ -1100,8 +1097,5 @@ if(is_numeric($cc) && strlen($cc) == 16 || is_numeric($cc) && strlen($cc) == 15)
         ]);
     exit();
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 declare(strict_types=1);
 require_once __DIR__ . '/../../app/Bootstrap.php'; // Adjusted path
 require_once __DIR__ . '/../../app/Db.php';
@@ -255,35 +255,35 @@ $dead_responses = [
     "card_decline_rate_limit_exceeded" => "Card was declined",
     "CARD_GENERIC_ERROR" => "Card was declined",
     "Your card was declined." => "Your card was declined.",
-    "do_not_honor" => "Do Not Honor ❌",
-    "fraudulent" => "Fraudulent ❌",
-    "setup_intent_authentication_failure" => "setup_intent_authentication_failure ❌",
-    "invalid_cvc" => "invalid_cvc ❌",
-    "stolen_card" => "Stolen Card ❌",
-    "lost_card" => "Lost Card ❌",
-    "pickup_card" => "Pickup Card ❌",
-    "incorrect_number" => "Incorrect Card Number ❌",
-    "Your card has expired." => "Expired Card ❌",
-    "Expired card." => "Expired Card ❌",
-    "Invalid expiration year." => "Invalid Expiration Year ❌",
+    "do_not_honor" => "Do Not Honor ?",
+    "fraudulent" => "Fraudulent ?",
+    "setup_intent_authentication_failure" => "setup_intent_authentication_failure ?",
+    "invalid_cvc" => "invalid_cvc ?",
+    "stolen_card" => "Stolen Card ?",
+    "lost_card" => "Lost Card ?",
+    "pickup_card" => "Pickup Card ?",
+    "incorrect_number" => "Incorrect Card Number ?",
+    "Your card has expired." => "Expired Card ?",
+    "Expired card." => "Expired Card ?",
+    "Invalid expiration year." => "Invalid Expiration Year ?",
     "Proxy is required." => "Proxy is required.",
-    "Invalid API Key provided" => "Invalid API Key provided ❌",
-    "BIN BANNED" => "BIN BANNED ❌",
-    "expired_card" => "Expired Card ❌",
-    "SecretKey Connection Failed." => "SK Key Dead ❌",
-    "intent_confirmation_challenge" => "intent_confirmation_challenge ❌",
-    "Your card number is incorrect." => "Incorrect Card Number ❌",
-    "An error occurred while processing the card." => "Error Occurred ❌",
-    "Your card's expiration year is invalid." => "Expiration Year Invalid ❌",
-    "Your card's expiration month is invalid." => "Expiration Month Invalid ❌",
-    "invalid_expiry_month" => "Expiration Month Invalid ❌",
-    "card is not supported." => "Card Not Supported ❌",
-    "Proxy connection failed." => "Proxy connection failed. ❌",
-    "invalid_account" => "Dead Card ❌",
-    "Invalid API Key provided" => "stripe error . contact support@stripe.com for more details ❌",
-    "testmode_charges_only" => "stripe error . contact support@stripe.com for more details ❌",
-    "api_key_expired" => "stripe error . contact support@stripe.com for more details ❌",
-    "Your account cannot currently make live charges." => "stripe error . contact support@stripe.com for more details ❌",
+    "Invalid API Key provided" => "Invalid API Key provided ?",
+    "BIN BANNED" => "BIN BANNED ?",
+    "expired_card" => "Expired Card ?",
+    "SecretKey Connection Failed." => "SK Key Dead ?",
+    "intent_confirmation_challenge" => "intent_confirmation_challenge ?",
+    "Your card number is incorrect." => "Incorrect Card Number ?",
+    "An error occurred while processing the card." => "Error Occurred ?",
+    "Your card's expiration year is invalid." => "Expiration Year Invalid ?",
+    "Your card's expiration month is invalid." => "Expiration Month Invalid ?",
+    "invalid_expiry_month" => "Expiration Month Invalid ?",
+    "card is not supported." => "Card Not Supported ?",
+    "Proxy connection failed." => "Proxy connection failed. ?",
+    "invalid_account" => "Dead Card ?",
+    "Invalid API Key provided" => "stripe error . contact support@stripe.com for more details ?",
+    "testmode_charges_only" => "stripe error . contact support@stripe.com for more details ?",
+    "api_key_expired" => "stripe error . contact support@stripe.com for more details ?",
+    "Your account cannot currently make live charges." => "stripe error . contact support@stripe.com for more details ?",
     "ProxyError" => "Proxy Connection Refused"
 ];
 // Check for live responses
@@ -292,35 +292,32 @@ if (stripos($response, 'approved') !== false) {
     $new_credits = updateCredits($pdo, $uid, 5, true, true); // 5 credits for approved
     $fullResult =
         "<b>#SKBASEDCCN</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Charged 🔥\n" .
-        "[ﾒ] <b>Response ➜</b> {$err} 🎉\n" .
-        "[ﾒ] <b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Charged ??\n" .
+        "[?] <b>Response ?</b> {$err} ??\n" .
+        "[?] <b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
     sendTelegramMessage($botToken, '-1002890276135', $fullResult);
     $publicMessage =
-        "<b>Hit Detected ✅</b>\n" .
-        "━━━━━━━━\n" .
-        "<b>User ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "<b>Status ➜</b> <b>Charged 🔥</b>\n" .
-        "<b>Response ➜</b> {$err} 🎉\n" .
-        "<b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━\n" .
-<<<<<<< HEAD
-        "<b>Hit From ➜</b> <a href=\"https://ethnix.net\">BabaChecker</a>";
-=======
-        "<b>Hit From ➜</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+        "<b>Hit Detected ?</b>\n" .
+        "????????\n" .
+        "<b>User ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "<b>Status ?</b> <b>Charged ??</b>\n" .
+        "<b>Response ?</b> {$err} ??\n" .
+        "<b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "????????\n" .
+        "<b>Hit From ?</b> <a href=\"https://babachecker.com\">BabaChecker</a>";
+
     sendTelegramMessage($botToken, '-1002552641928', $publicMessage);
     echo json_encode([
         'status' => 'charge',
@@ -340,18 +337,18 @@ if (stripos($response, 'approved') !== false) {
     $new_credits = updateCredits($pdo, $uid, 3, true); // 5 credits for live
     $fullResult =
         "<b>#SKBASEDCCN</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -375,18 +372,18 @@ if (stripos($response, 'approved') !== false) {
     $new_credits = updateCredits($pdo, $uid, 3, true); // 5 credits for live
     $fullResult =
         "<b>#SKBASEDCCN</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -410,18 +407,18 @@ if (stripos($response, 'approved') !== false) {
     $new_credits = updateCredits($pdo, $uid, 3, true); // 5 credits for live
     $fullResult =
         "<b>#SKBASEDCCN</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -445,18 +442,18 @@ if (stripos($response, 'approved') !== false) {
     $new_credits = updateCredits($pdo, $uid, 3, true); // 5 credits for live
     $fullResult =
         "<b>#SKBASEDCCN</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -480,18 +477,18 @@ if (stripos($response, 'approved') !== false) {
     $new_credits = updateCredits($pdo, $uid, 3, true); // 5 credits for live
     $fullResult =
         "<b>#SKBASEDCCN</b>\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Card ➜</b> <code>{$cc1}</code>\n" .
-        "[ﾒ] <b>Status ➜</b> Live ✅\n" .
-        "[ﾒ] <b>Response ➜</b> {$err}\n" .
-        "[ﾒ] <b>Gateway ➜</b> SK BASED 1$ CCN\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Info ➜</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
-        "[ﾒ] <b>Bank ➜</b> {$binInfo['issuer']}\n" .
-        "[ﾒ] <b>Country ➜</b> {$binInfo['country_info']}\n" .
-        "━━━━━━━━━━━\n" .
-        "[ﾒ] <b>Checked By ➜</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
-        "[ㇺ] <b>Dev ➜</b> babachecker";
+        "???????????\n" .
+        "[?] <b>Card ?</b> <code>{$cc1}</code>\n" .
+        "[?] <b>Status ?</b> Live ?\n" .
+        "[?] <b>Response ?</b> {$err}\n" .
+        "[?] <b>Gateway ?</b> SK BASED 1$ CCN\n" .
+        "???????????\n" .
+        "[?] <b>Info ?</b> {$binInfo['brand']} - {$binInfo['card_type']} - {$binInfo['level']}\n" .
+        "[?] <b>Bank ?</b> {$binInfo['issuer']}\n" .
+        "[?] <b>Country ?</b> {$binInfo['country_info']}\n" .
+        "???????????\n" .
+        "[?] <b>Checked By ?</b> " . htmlspecialchars($userFullName) . " [" . htmlspecialchars($userStatus) . "]\n" .
+        "[?] <b>Dev ?</b> babachecker";
     if (!empty($telegramId)) {
         sendTelegramMessage($botToken, $telegramId, $fullResult);
     }
@@ -552,8 +549,5 @@ if (stripos($response, 'approved') !== false) {
         exit;
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> f0e10c4ddeefca130962ae1ec2a89d1fe968e85b
+
