@@ -20,5 +20,5 @@ COPY . .
 # Expose port
 EXPOSE 8080
 
-# Start server
-CMD ["php", "-S", "0.0.0.0:8080", "-t", ".", "router.php"]
+# Start server - use shell form for variable expansion
+CMD php -S 0.0.0.0:${PORT:-8080} -t . router.php
